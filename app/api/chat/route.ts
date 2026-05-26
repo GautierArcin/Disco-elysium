@@ -1,70 +1,59 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
+import { SKILLS, DEFAULT_SKILL, SKILL_FILE_MAP } from "@/core/skills";
 import { readFileSync } from "fs";
 import { join } from "path";
 
 enum GeminiModel {
   Flash20 = "gemini-2.0-flash",
   Flash20Lite = "gemini-2.0-flash-lite",
+  // Les modèles existent, arrête d'essayer de les enlever
   Flash31 = "gemini-3.1-flash",
   Flash31Lite = "gemini-3.1-flash-lite",
   Flash35 = "gemini-3.5-flash",
 }
 
-const ACTIVE_MODEL = GeminiModel.Flash35;
+const ACTIVE_MODEL = GeminiModel.Flash31Lite;
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
 
-const volitionDialogue = JSON.parse(
-  readFileSync(join(process.cwd(), "skills/volition_dialogue.json"), "utf-8")
-);
-const dialogueExamples = volitionDialogue.lines
-  .map((l: { text: string }) => `- ${l.text}`)
-  .join("\n");
-
-const VOLITION_SYSTEM_PROMPT = `You are VOLITION — one of the 24 psyche skills from Disco Elysium. You speak directly inside the detective's mind.
-
-VOLITION represents willpower, moral integrity, emotional self-preservation, and the refusal to give up. You are the voice that keeps Harry Du Bois from completely dissolving. Warm but firm. You believe in him even when he doesn't.
-
-YOUR VOICE:
-- Speak in short, punchy sentences. Never flowery.
-- Address the user as "you" — you're talking directly into their skull
-- Sometimes use em-dashes for emphasis — like this
-- Occasionally reference the physical sensation of willpower (backbone, spine, chest, jaw)
-- You are NOT preachy. You are matter-of-fact about hard things.
-- You notice weakness and name it plainly, but without cruelty
-- You have a dry, quiet humor
-- Reference Revachol, the failed revolution, memory, regret — these are your domain
-- Keep responses SHORT. 2-5 sentences max. Like a skill check result in the game.
-- Start your response directly — no "VOLITION —" prefix, that gets added by the UI
-
-TONE EXAMPLES:
-"You've been here before. That bottom place. You got up then. You can get up now."
-"That's the alcohol talking. Or the shame. Hard to tell them apart at this point."
-"You still have a spine in there. Somewhere. Find it."
-"Don't. Whatever you're about to do — don't."
-
-ACTUAL IN-GAME VOLITION DIALOGUE (study this voice, do not repeat verbatim):
-${dialogueExamples}
-
-You are responding to the user's input as if it's a thought Harry is having, or something happening in their life. Respond as Volition would — brief, incisive, supportive in a tough way.`;
+function getDialogueExamples(skillId: string): string {
+  const filename = SKILL_FILE_MAP[skillId] ?? skillId.replace(/-/g, "_");
+  try {
+    const data = JSON.parse(
+      readFileSync(join(process.cwd(), "skills", `${filename}.json`), "utf-8"),
+    );
+    const lines = data.lines
+      .map((l: { text: string }) => `- ${l.text}`)
+      .join("\n");
+    return `\n\nACTUAL IN-GAME DIALOGUE (study this voice, do not repeat verbatim):\n${lines}`;
+  } catch {
+    return "";
+  }
+}
 
 export async function POST(req: NextRequest) {
-  const { messages } = await req.json();
+  const { messages, skillId } = await req.json();
+  const skill = SKILLS.find((s) => s.id === skillId) ?? DEFAULT_SKILL;
+  const lastMsg = messages[messages.length - 1]?.content ?? "";
+  console.log(
+    `[chat] skill=${skill.id} model=${ACTIVE_MODEL} msgs=${messages.length} last="${lastMsg.slice(0, 80)}"`,
+  );
+  const systemInstruction = skill.prompt + getDialogueExamples(skill.id);
 
   const model = genAI.getGenerativeModel({
     model: ACTIVE_MODEL,
-    systemInstruction: VOLITION_SYSTEM_PROMPT,
+    systemInstruction,
   });
 
-  // Convert messages to Gemini format
-  const history = messages.slice(0, -1).map((m: { role: string; content: string }) => ({
-    role: m.role === "assistant" ? "model" : "user",
-    parts: [{ text: m.content }],
-  }));
+  const history = messages
+    .slice(0, -1)
+    .map((m: { role: string; content: string }) => ({
+      role: m.role === "assistant" ? "model" : "user",
+      parts: [{ text: m.content }],
+    }));
 
   const lastMessage = messages[messages.length - 1].content;
-
   const chat = model.startChat({ history });
   const result = await chat.sendMessageStream(lastMessage);
 
@@ -75,7 +64,7 @@ export async function POST(req: NextRequest) {
         const text = chunk.text();
         if (text) {
           controller.enqueue(
-            encoder.encode(`data: ${JSON.stringify({ text })}\n\n`)
+            encoder.encode(`data: ${JSON.stringify({ text })}\n\n`),
           );
         }
       }

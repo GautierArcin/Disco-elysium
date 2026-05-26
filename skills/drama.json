@@ -1,0 +1,3163 @@
+{
+  "skill": "drama",
+  "speaker_id": 401,
+  "total_lines": 526,
+  "lines": [
+    {
+      "conversation_id": 10,
+      "line_id": 86,
+      "speaker_id": 401,
+      "text": "If it doesn't rhyme, you're not pronouncing it right."
+    },
+    {
+      "conversation_id": 12,
+      "line_id": 106,
+      "speaker_id": 401,
+      "text": "Not for a moment does he believe that's your real name. He casts it aside as an intradepartmental joke or a peculiarity he doesn't understand."
+    },
+    {
+      "conversation_id": 13,
+      "line_id": 212,
+      "speaker_id": 401,
+      "text": "He thinks you're stupid, sire."
+    },
+    {
+      "conversation_id": 13,
+      "line_id": 320,
+      "speaker_id": 401,
+      "text": "His eyes dart from left to right. This man isn't lying, but he *is* hiding something."
+    },
+    {
+      "conversation_id": 14,
+      "line_id": 156,
+      "speaker_id": 401,
+      "text": "A white lie."
+    },
+    {
+      "conversation_id": 14,
+      "line_id": 345,
+      "speaker_id": 401,
+      "text": "Not you at all, no-no-no!"
+    },
+    {
+      "conversation_id": 14,
+      "line_id": 536,
+      "speaker_id": 401,
+      "text": "Well, then maybe you shouldn't have missed. This is merely a suggestion. If you want to be a *failed* child murderer, go with that."
+    },
+    {
+      "conversation_id": 14,
+      "line_id": 544,
+      "speaker_id": 401,
+      "text": "X54156745678222! Let's *lie*."
+    },
+    {
+      "conversation_id": 14,
+      "line_id": 858,
+      "speaker_id": 401,
+      "text": "My liege, it may be possible to *spin* this as some sort of, uhm... pedagogical exercise."
+    },
+    {
+      "conversation_id": 16,
+      "line_id": 21,
+      "speaker_id": 401,
+      "text": "She seems to be telling the truth, sire."
+    },
+    {
+      "conversation_id": 16,
+      "line_id": 103,
+      "speaker_id": 401,
+      "text": "Pff... It's surely an act. Ask questions. Tough ones, preferably."
+    },
+    {
+      "conversation_id": 16,
+      "line_id": 363,
+      "speaker_id": 401,
+      "text": "She doesn't seem to be lying -- she's genuinely spooked by their disappearance."
+    },
+    {
+      "conversation_id": 16,
+      "line_id": 703,
+      "speaker_id": 401,
+      "text": "Yes! We demand she be punished for deceiving us. We demand her anxiety. We demand her fear."
+    },
+    {
+      "conversation_id": 17,
+      "line_id": 50,
+      "speaker_id": 401,
+      "text": "Test the waters here. Say that there's nothing to be worried about."
+    },
+    {
+      "conversation_id": 17,
+      "line_id": 57,
+      "speaker_id": 401,
+      "text": "She really believes that."
+    },
+    {
+      "conversation_id": 17,
+      "line_id": 99,
+      "speaker_id": 401,
+      "text": "The truth, sire."
+    },
+    {
+      "conversation_id": 17,
+      "line_id": 461,
+      "speaker_id": 401,
+      "text": "Sire, she doesn't believe things will ever improve around here."
+    },
+    {
+      "conversation_id": 18,
+      "line_id": 153,
+      "speaker_id": 401,
+      "text": "He hasn't been particularly forthcoming before. He may well still be hiding something. After he's left it's too late."
+    },
+    {
+      "conversation_id": 18,
+      "line_id": 398,
+      "speaker_id": 401,
+      "text": "She acts chipper, but something's changed in her tone. A hidden worry."
+    },
+    {
+      "conversation_id": 18,
+      "line_id": 589,
+      "speaker_id": 401,
+      "text": "Self-deceit, sire."
+    },
+    {
+      "conversation_id": 18,
+      "line_id": 591,
+      "speaker_id": 401,
+      "text": "He wants to see this tale through as much as *you*. Otherwise he'd have stopped this already. But he *cannot* let it drag out after this."
+    },
+    {
+      "conversation_id": 18,
+      "line_id": 680,
+      "speaker_id": 401,
+      "text": "He's not comfortable with the possibility that you'll claim the find -- but he's lying about this even to himself."
+    },
+    {
+      "conversation_id": 19,
+      "line_id": 260,
+      "speaker_id": 401,
+      "text": "He's really shaking and everything!"
+    },
+    {
+      "conversation_id": 19,
+      "line_id": 427,
+      "speaker_id": 401,
+      "text": "She's honest."
+    },
+    {
+      "conversation_id": 20,
+      "line_id": 5,
+      "speaker_id": 401,
+      "text": "'Tis possible thou couldst persuade the lieutenant 'twas all a part of thy 'unorthodox' method. But can thou persuade *thyself*?"
+    },
+    {
+      "conversation_id": 20,
+      "line_id": 40,
+      "speaker_id": 401,
+      "text": "Thy pen of lies runneth dry. Best to simplie deny the Truth baldfacedly."
+    },
+    {
+      "conversation_id": 20,
+      "line_id": 45,
+      "speaker_id": 401,
+      "text": "Hrmm, methinks my liege doth protest too much."
+    },
+    {
+      "conversation_id": 20,
+      "line_id": 56,
+      "speaker_id": 401,
+      "text": "Believeth in thyself, my liege! 'Twas all a clever ruse."
+    },
+    {
+      "conversation_id": 28,
+      "line_id": 103,
+      "speaker_id": 401,
+      "text": "He's lying... But there's no way to call him out on it."
+    },
+    {
+      "conversation_id": 28,
+      "line_id": 169,
+      "speaker_id": 401,
+      "text": "Here comes a layup, sire! Fall not for it!"
+    },
+    {
+      "conversation_id": 28,
+      "line_id": 174,
+      "speaker_id": 401,
+      "text": "He's lying. But whatever, you don't really *need* his lame tracks."
+    },
+    {
+      "conversation_id": 28,
+      "line_id": 630,
+      "speaker_id": 401,
+      "text": "Your liessss, sire! He seesss through them with a dissscerning eye of truth!"
+    },
+    {
+      "conversation_id": 28,
+      "line_id": 694,
+      "speaker_id": 401,
+      "text": "He was *wondering* about something business-related. About how much money he could make off one."
+    },
+    {
+      "conversation_id": 28,
+      "line_id": 762,
+      "speaker_id": 401,
+      "text": "Your body is ready, sire."
+    },
+    {
+      "conversation_id": 28,
+      "line_id": 816,
+      "speaker_id": 401,
+      "text": "Wondering about it is, of course, exactly what he's been doing. For ten years."
+    },
+    {
+      "conversation_id": 28,
+      "line_id": 903,
+      "speaker_id": 401,
+      "text": "*But please do still tell me!*"
+    },
+    {
+      "conversation_id": 28,
+      "line_id": 1096,
+      "speaker_id": 401,
+      "text": "Well, he's definitely not lying -- he wouldn't endanger this business like that."
+    },
+    {
+      "conversation_id": 29,
+      "line_id": 138,
+      "speaker_id": 401,
+      "text": "LIE! LIE TO GET OUT OF IT!"
+    },
+    {
+      "conversation_id": 29,
+      "line_id": 190,
+      "speaker_id": 401,
+      "text": "The *revolutionary* must have added a little lustre to it, for a ten-year-old Kitsuragi. He will never admit it though."
+    },
+    {
+      "conversation_id": 29,
+      "line_id": 230,
+      "speaker_id": 401,
+      "text": "The words are true, milord. No love for the herb in the lieutenant."
+    },
+    {
+      "conversation_id": 29,
+      "line_id": 812,
+      "speaker_id": 401,
+      "text": "Smugly, sire. Raise it smugly."
+    },
+    {
+      "conversation_id": 29,
+      "line_id": 902,
+      "speaker_id": 401,
+      "text": "That's the truth."
+    },
+    {
+      "conversation_id": 29,
+      "line_id": 931,
+      "speaker_id": 401,
+      "text": "He's not. It's all but a ruse, sire. The lieutenant's peculiar sense of humor."
+    },
+    {
+      "conversation_id": 29,
+      "line_id": 1014,
+      "speaker_id": 401,
+      "text": "The *revolutionary* must have added a little lustre to it, for a ten-year-old Kitsuragi. He will never admit it though."
+    },
+    {
+      "conversation_id": 35,
+      "line_id": 297,
+      "speaker_id": 401,
+      "text": "It's remarkable how he can keep a straight face. Take note -- the lieutenant is well versed in dead-panning. Many of the things he says could be meant in jest."
+    },
+    {
+      "conversation_id": 40,
+      "line_id": 99,
+      "speaker_id": 401,
+      "text": "It would take more subterfuge to trick the lieutenant."
+    },
+    {
+      "conversation_id": 71,
+      "line_id": 83,
+      "speaker_id": 401,
+      "text": "It was merely a *jest* -- horseplay! But now it looks like you're a total *psychopath*, jeopardizing the crime scene..."
+    },
+    {
+      "conversation_id": 71,
+      "line_id": 487,
+      "speaker_id": 401,
+      "text": "It was merely a *jest* -- horseplay! The impression of you being *a total psychopath* is wrong."
+    },
+    {
+      "conversation_id": 71,
+      "line_id": 537,
+      "speaker_id": 401,
+      "text": "It would be *clever* of you to omit the boots altogether, sire. If you are to *keep* them for yourself -- as you ought to. You have deserved them more than anyone else!"
+    },
+    {
+      "conversation_id": 71,
+      "line_id": 826,
+      "speaker_id": 401,
+      "text": "10:15. It's understated."
+    },
+    {
+      "conversation_id": 71,
+      "line_id": 1002,
+      "speaker_id": 401,
+      "text": "Patience. After the autopsy, before the body is taken away. There will be a *window* of opportunity, after the lieutenant has gone to sleep. I hope this has helped you, my liege."
+    },
+    {
+      "conversation_id": 204,
+      "line_id": 657,
+      "speaker_id": 401,
+      "text": "I'm quite sure it wasn't like that, sire."
+    },
+    {
+      "conversation_id": 207,
+      "line_id": 10,
+      "speaker_id": 401,
+      "text": "It's because of the pale. He doesn't want your frail mind caught up in it -- and this woman has spent time *in* the pale. A lot of time."
+    },
+    {
+      "conversation_id": 207,
+      "line_id": 299,
+      "speaker_id": 401,
+      "text": "In the background you can hear the orchestra swell as the screen fills with the maiden's imploring eyes..."
+    },
+    {
+      "conversation_id": 207,
+      "line_id": 321,
+      "speaker_id": 401,
+      "text": "Maybe if she thought you're... *corrupt*?"
+    },
+    {
+      "conversation_id": 207,
+      "line_id": 513,
+      "speaker_id": 401,
+      "text": "He doesn't want your frail mind caught up in something here. Something *unconnected* to the case. But connected to this woman tuning out like that."
+    },
+    {
+      "conversation_id": 207,
+      "line_id": 516,
+      "speaker_id": 401,
+      "text": "Yeah... it's not her. Believe me."
+    },
+    {
+      "conversation_id": 275,
+      "line_id": 8,
+      "speaker_id": 401,
+      "text": "Some manner of self-deceit is present in his thinking. Sounds like this Guillaume abandoned him and he doesn't want to admit it."
+    },
+    {
+      "conversation_id": 346,
+      "line_id": 472,
+      "speaker_id": 401,
+      "text": "He's surprisingly good at this. Not bad at all... Look at him lurching."
+    },
+    {
+      "conversation_id": 346,
+      "line_id": 605,
+      "speaker_id": 401,
+      "text": "The lieutenant adopts a rodentine quality. Be cool, sire. He's getting *into* this."
+    },
+    {
+      "conversation_id": 347,
+      "line_id": 26,
+      "speaker_id": 401,
+      "text": "Not head, child, *headssss*!"
+    },
+    {
+      "conversation_id": 347,
+      "line_id": 177,
+      "speaker_id": 401,
+      "text": "Psst! You forgot the subterfuge. You're saying this out loud."
+    },
+    {
+      "conversation_id": 349,
+      "line_id": 69,
+      "speaker_id": 401,
+      "text": "We know a *lie*, sire. And it didn't feel like one to us. He chooses to believe though -- for now."
+    },
+    {
+      "conversation_id": 352,
+      "line_id": 13,
+      "speaker_id": 401,
+      "text": "This young man adds a capital *G* before the *H* in his *YEAGHs* and *AAGHs*. This produces a guttural, *Gottwaldian* accent and makes him sound more animal, more *in it*."
+    },
+    {
+      "conversation_id": 353,
+      "line_id": 292,
+      "speaker_id": 401,
+      "text": "A courageous cop-man such as thyself surely did not flee in fear from a mere mortal!"
+    },
+    {
+      "conversation_id": 353,
+      "line_id": 507,
+      "speaker_id": 401,
+      "text": "Interesting, sire. A bit like you then. An 'MC', for short."
+    },
+    {
+      "conversation_id": 360,
+      "line_id": 38,
+      "speaker_id": 401,
+      "text": "The lieutenant issss not persuaded, sssssire."
+    },
+    {
+      "conversation_id": 361,
+      "line_id": 9,
+      "speaker_id": 401,
+      "text": "Face it, sire, your little subterfuge isn't leading anywhere."
+    },
+    {
+      "conversation_id": 362,
+      "line_id": 349,
+      "speaker_id": 401,
+      "text": "Don't let them see you *flustered*, ssssire. Play along..."
+    },
+    {
+      "conversation_id": 362,
+      "line_id": 641,
+      "speaker_id": 401,
+      "text": "He speaks the truth."
+    },
+    {
+      "conversation_id": 362,
+      "line_id": 1240,
+      "speaker_id": 401,
+      "text": "These two deserve the Order of Honour for Bullshitting. There's no way they've actually *read* all this stuff."
+    },
+    {
+      "conversation_id": 362,
+      "line_id": 1525,
+      "speaker_id": 401,
+      "text": "What a coincidence! You two have the *same* jacket. What are the odds?"
+    },
+    {
+      "conversation_id": 362,
+      "line_id": 1612,
+      "speaker_id": 401,
+      "text": "How about a tale of adventure, intrigue, and derring-do?"
+    },
+    {
+      "conversation_id": 362,
+      "line_id": 1702,
+      "speaker_id": 401,
+      "text": "Uh oh. No one said anything about *reading*. You'll just have to wing this one."
+    },
+    {
+      "conversation_id": 363,
+      "line_id": 74,
+      "speaker_id": 401,
+      "text": "The lieutenant issss *not* persuaded, sssssire."
+    },
+    {
+      "conversation_id": 368,
+      "line_id": 691,
+      "speaker_id": 401,
+      "text": "How could you expect anyone to stay around with all your *standard-issue* thoughts and opinions?"
+    },
+    {
+      "conversation_id": 374,
+      "line_id": 70,
+      "speaker_id": 401,
+      "text": "Rehearsal helps fine tune a performance. Learn your lines so they can flow out of you like Herc Zeitung's legendary soliloquy in 'Hoppla, jetzt komm ich!'!"
+    },
+    {
+      "conversation_id": 377,
+      "line_id": 516,
+      "speaker_id": 401,
+      "text": "How dull! Entertainment isn't a wall to read. Where are the performers and pyrotechnics? No one will pay attention to this."
+    },
+    {
+      "conversation_id": 378,
+      "line_id": 39,
+      "speaker_id": 401,
+      "text": "Loincloth? Now, you see, that's not really what a scab would say is it? Better not to press the issue further, sire. He seems... tense."
+    },
+    {
+      "conversation_id": 378,
+      "line_id": 161,
+      "speaker_id": 401,
+      "text": "Pretty okay, as far as lies go."
+    },
+    {
+      "conversation_id": 378,
+      "line_id": 276,
+      "speaker_id": 401,
+      "text": "It just has to be said -- that was not a convincing line."
+    },
+    {
+      "conversation_id": 378,
+      "line_id": 291,
+      "speaker_id": 401,
+      "text": "Every once in a while, it is like you can see glimpses of another guy under the guise of this *fighter for jobs*. He seems a more brutal, cunning and suspicious person. Just a hunch. Or... you just might be paranoid!"
+    },
+    {
+      "conversation_id": 379,
+      "line_id": 129,
+      "speaker_id": 401,
+      "text": "He's not lying -- about not doing it himself."
+    },
+    {
+      "conversation_id": 379,
+      "line_id": 225,
+      "speaker_id": 401,
+      "text": "He didn't do it. It's the truth."
+    },
+    {
+      "conversation_id": 379,
+      "line_id": 301,
+      "speaker_id": 401,
+      "text": "Psst. Show him your stolen card. Now hast arrived the perfect moment!"
+    },
+    {
+      "conversation_id": 379,
+      "line_id": 799,
+      "speaker_id": 401,
+      "text": "He believes the Hardie boys could've done it."
+    },
+    {
+      "conversation_id": 379,
+      "line_id": 828,
+      "speaker_id": 401,
+      "text": "He can't know that. Maybe you're just younger on the photo."
+    },
+    {
+      "conversation_id": 379,
+      "line_id": 888,
+      "speaker_id": 401,
+      "text": "Now you're in a mess. The time hath not arrived. Sorry."
+    },
+    {
+      "conversation_id": 380,
+      "line_id": 818,
+      "speaker_id": 401,
+      "text": "Sire, the tent -- 'twas a *securitie risk*! And in here? Sanctuary! 'Twas only noble of you."
+    },
+    {
+      "conversation_id": 381,
+      "line_id": 18,
+      "speaker_id": 401,
+      "text": "You pick up on something artificial in his tone, like he's putting on an *act*. This is unlike him. He is usually more himself."
+    },
+    {
+      "conversation_id": 381,
+      "line_id": 822,
+      "speaker_id": 401,
+      "text": "He had nothing to do with it."
+    },
+    {
+      "conversation_id": 381,
+      "line_id": 843,
+      "speaker_id": 401,
+      "text": "Yes, it was probably nothing."
+    },
+    {
+      "conversation_id": 383,
+      "line_id": 166,
+      "speaker_id": 401,
+      "text": "He's lying."
+    },
+    {
+      "conversation_id": 383,
+      "line_id": 436,
+      "speaker_id": 401,
+      "text": "No, he really believes what he's saying -- he has completely accepted the narrative of transcendence through cocaine use."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 36,
+      "speaker_id": 401,
+      "text": "Attaboy."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 37,
+      "speaker_id": 401,
+      "text": "Yessss, this is your chance! Only a *remote viewer* can solve this case."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 177,
+      "speaker_id": 401,
+      "text": "Thy sweet tongue drips not with honey today... yet, try thou must!"
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 217,
+      "speaker_id": 401,
+      "text": "Slither up to her, you silver-tongued fiend. Show her what world-class perfidy looks like!"
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 227,
+      "speaker_id": 401,
+      "text": "Yessss, this is your chance! This is your chance! Only a *para-detective* can solve this case."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 228,
+      "speaker_id": 401,
+      "text": "Tell her how *ghasssstly* it was! You know it's what she wantssss to hear..."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 254,
+      "speaker_id": 401,
+      "text": "Here we go!"
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 295,
+      "speaker_id": 401,
+      "text": "For whatever reason she's lying to you about the fridge. Seems like you have to find your own way to the cellar."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 296,
+      "speaker_id": 401,
+      "text": "Do not act surprised. You know of these things, sire."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 357,
+      "speaker_id": 401,
+      "text": "Stop being such a fussy prude! You can't convince her without liessssss."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 441,
+      "speaker_id": 401,
+      "text": "You're not *lying* -- you're giving her peace of mind. The meanssss are thus jusssstified."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 530,
+      "speaker_id": 401,
+      "text": "To hell with it -- perchance you ought to just lie, sire?"
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 547,
+      "speaker_id": 401,
+      "text": "You know, maybe this time you should just be upfront with her?"
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 572,
+      "speaker_id": 401,
+      "text": "Time to fire up the old lie machine!"
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 640,
+      "speaker_id": 401,
+      "text": "Alright -- Take two!"
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 664,
+      "speaker_id": 401,
+      "text": "My liege! You know what this case calls for? A para-detective!"
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 683,
+      "speaker_id": 401,
+      "text": "You've got this. Just go with it, this is *elegant*."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 707,
+      "speaker_id": 401,
+      "text": "She so badly wants this to be over, she would have believed anything."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 709,
+      "speaker_id": 401,
+      "text": "You ssshould get back to the furnace, make some nnnoise."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 726,
+      "speaker_id": 401,
+      "text": "Yes, you do."
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 866,
+      "speaker_id": 401,
+      "text": "'Tis a poor craftsman who blames his tools!"
+    },
+    {
+      "conversation_id": 428,
+      "line_id": 870,
+      "speaker_id": 401,
+      "text": "She recites it like it's a poem, or like she's playing a role she's grown tired of."
+    },
+    {
+      "conversation_id": 430,
+      "line_id": 65,
+      "speaker_id": 401,
+      "text": "Tired. Controlled."
+    },
+    {
+      "conversation_id": 445,
+      "line_id": 79,
+      "speaker_id": 401,
+      "text": "He's an actor declaiming a soliloquy. See how you hang on his every word?"
+    },
+    {
+      "conversation_id": 445,
+      "line_id": 145,
+      "speaker_id": 401,
+      "text": "It's the voice of someone who has something to *hide* my liege."
+    },
+    {
+      "conversation_id": 448,
+      "line_id": 87,
+      "speaker_id": 401,
+      "text": "A blatant lie, sire. Yet he tells it with such conviction. We'd believe him -- if we didn't know better."
+    },
+    {
+      "conversation_id": 448,
+      "line_id": 120,
+      "speaker_id": 401,
+      "text": "It feels great."
+    },
+    {
+      "conversation_id": 448,
+      "line_id": 168,
+      "speaker_id": 401,
+      "text": "It's for show, my liege. He knows you need more than this to bust this guy. Later, perhaps?"
+    },
+    {
+      "conversation_id": 448,
+      "line_id": 292,
+      "speaker_id": 401,
+      "text": "A convincing performance, bravo!"
+    },
+    {
+      "conversation_id": 452,
+      "line_id": 76,
+      "speaker_id": 401,
+      "text": "Those UV-stickers are almost certainly just there for show. If anything, these lenses probably direct more UV light *into* your pupils -- a UV magnifier."
+    },
+    {
+      "conversation_id": 459,
+      "line_id": 34,
+      "speaker_id": 401,
+      "text": "Is this some kind of joke?"
+    },
+    {
+      "conversation_id": 459,
+      "line_id": 173,
+      "speaker_id": 401,
+      "text": "Who cares that you don't remember her? Just go along with it."
+    },
+    {
+      "conversation_id": 459,
+      "line_id": 282,
+      "speaker_id": 401,
+      "text": "She thinks you're the gremlin child! What would he say to this?"
+    },
+    {
+      "conversation_id": 460,
+      "line_id": 8,
+      "speaker_id": 401,
+      "text": "Nothing changes in her tone as she says that -- as if it's just another piece of information to lay out for the world."
+    },
+    {
+      "conversation_id": 460,
+      "line_id": 54,
+      "speaker_id": 401,
+      "text": "That's all she has to say on the subject. She's been thorough and truthful as far as we can see."
+    },
+    {
+      "conversation_id": 460,
+      "line_id": 101,
+      "speaker_id": 401,
+      "text": "She's heard of the murder, but did not see it, sire."
+    },
+    {
+      "conversation_id": 460,
+      "line_id": 198,
+      "speaker_id": 401,
+      "text": "No falsehoods are present. She's a novelty dicemaker and doesn't have anything to hide. Ask what you need."
+    },
+    {
+      "conversation_id": 460,
+      "line_id": 204,
+      "speaker_id": 401,
+      "text": "She sounds almost mocking when she says that."
+    },
+    {
+      "conversation_id": 460,
+      "line_id": 315,
+      "speaker_id": 401,
+      "text": "Maybe it's just because she's so talented that she's been able to woo the curse?"
+    },
+    {
+      "conversation_id": 460,
+      "line_id": 555,
+      "speaker_id": 401,
+      "text": "It was too real to be just a prank. Either we're dealing with a professional actress, or..."
+    },
+    {
+      "conversation_id": 460,
+      "line_id": 892,
+      "speaker_id": 401,
+      "text": "That's all she has to say on the subject. She *has* been thorough -- and truthful -- as far as we can see."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 6,
+      "speaker_id": 401,
+      "text": "We wouldn't say he's lying, sire."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 162,
+      "speaker_id": 401,
+      "text": "It's easy to see he's telling the truth. He's kept his nose out of the dark stuff."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 214,
+      "speaker_id": 401,
+      "text": "For some reason, sire, he pays no heed to your objection. Continuing instead as if it *were* your ex wife. Strange..."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 297,
+      "speaker_id": 401,
+      "text": "Or did you learn it in school? More importantly: who can prove if you did? Go with it -- you *deserve* some acclaim."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 316,
+      "speaker_id": 401,
+      "text": "Is it... *wise* to share information about the case like this, sire?"
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 385,
+      "speaker_id": 401,
+      "text": "He's not lying. He liked the end."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 454,
+      "speaker_id": 401,
+      "text": "Mazut is an antiquated term for heavy fuel oils -- this man has a barely suppressed performative streak. Or he just likes unusual words. Or both!"
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 464,
+      "speaker_id": 401,
+      "text": "Again -- not a lie as far as you can tell."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 472,
+      "speaker_id": 401,
+      "text": "He cannot believe it."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 637,
+      "speaker_id": 401,
+      "text": "He chooses to believe what's best for her."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 686,
+      "speaker_id": 401,
+      "text": "It's true. We would have caught a lie. But... a *kind* heart is tricky."
+    },
+    {
+      "conversation_id": 481,
+      "line_id": 687,
+      "speaker_id": 401,
+      "text": "So that's what that emotion was, before. It was *wishful thinking*."
+    },
+    {
+      "conversation_id": 485,
+      "line_id": 28,
+      "speaker_id": 401,
+      "text": "And most importantly, never forget to rage-quit if the dice don't go your way!"
+    },
+    {
+      "conversation_id": 485,
+      "line_id": 105,
+      "speaker_id": 401,
+      "text": "Don't forget heated arguments escalating to physical confrontation with your friends."
+    },
+    {
+      "conversation_id": 495,
+      "line_id": 207,
+      "speaker_id": 401,
+      "text": "You know very well she did not talk about how someone should write a book about you. *You* are the one who brought the topic up."
+    },
+    {
+      "conversation_id": 515,
+      "line_id": 91,
+      "speaker_id": 401,
+      "text": "She's genuinely rooting for you, sire!"
+    },
+    {
+      "conversation_id": 515,
+      "line_id": 611,
+      "speaker_id": 401,
+      "text": "Sire, she doth not believe it wasn't you."
+    },
+    {
+      "conversation_id": 522,
+      "line_id": 127,
+      "speaker_id": 401,
+      "text": "It's not insincere. He's actually giving it thought."
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 4,
+      "speaker_id": 401,
+      "text": "Of course you do. Maybe some *regulations* and a *usual* pistol to go with them? It's official: My lord's *copotype* is Regular Cop. I'll let everyone know. I'll send out a telefax."
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 5,
+      "speaker_id": 401,
+      "text": "Yes, my *standard* liege. Someone's seen all sorts of wild ideas pop off and thought -- 'I'll take the *boring* one. The regular, please. The brown.'"
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 7,
+      "speaker_id": 401,
+      "text": "Good, good. Of course. To outright declare yourself something does seem a bit too... *interesting* now, doesn't it? I won't trouble you any further."
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 8,
+      "speaker_id": 401,
+      "text": "See? You're so *regular* and vinyl-brown, he doesn't even want to talk to you about it."
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 10,
+      "speaker_id": 401,
+      "text": "Yes, the type of cop you are, sire. Think of it as a caste, a *class*, even. A nation of Regular Law Officials that you belong to. It comes, of course, with the *usual* benefits."
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 20,
+      "speaker_id": 401,
+      "text": "Done and done. No actual *communiques* will be sent, of course. That would be too dramatic."
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 21,
+      "speaker_id": 401,
+      "text": "Of course you do. Let's get right to it. My lord's *copotype* is Regular Cop. I'll let everyone know. I'll send out a telefax."
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 22,
+      "speaker_id": 401,
+      "text": "No need to be defensive. The regularity, the brownness, the *cut-and-dry* have their appeal -- a very *standard* appeal."
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 26,
+      "speaker_id": 401,
+      "text": "Wow, so someone's been a little... *boring*?"
+    },
+    {
+      "conversation_id": 525,
+      "line_id": 27,
+      "speaker_id": 401,
+      "text": "Of course you do. And maybe some black shoes or a pristine white shirt to go with that. It's official: My lord's *copotype* is Regular Cop. I'll let everyone know. I'll send out a telefax."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 42,
+      "speaker_id": 401,
+      "text": "We're not detecting falsehoods, sire. He's gearing up to admit the truth."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 97,
+      "speaker_id": 401,
+      "text": "He is trying to avoid lying to you outright in case you really have been to his apartment."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 219,
+      "speaker_id": 401,
+      "text": "An infant could see he's not telling the truth -- but he's too scared to admit more wrongdoing."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 276,
+      "speaker_id": 401,
+      "text": "This man respects authority too much to see you for what you are. Pretend thou art a sober man!"
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 391,
+      "speaker_id": 401,
+      "text": "'Tis true sire. This man simply did not know what he was getting caught up in."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 438,
+      "speaker_id": 401,
+      "text": "Uncomfortable shifting around doesn't make him the killer, though. It's something else."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 474,
+      "speaker_id": 401,
+      "text": "We're detecting sincere contrition here, sire. He's not trying to flatter anyone."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 524,
+      "speaker_id": 401,
+      "text": "This is all he knows."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 607,
+      "speaker_id": 401,
+      "text": "He didn't *kill* him or anything, but there's something going on here."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 656,
+      "speaker_id": 401,
+      "text": "His smile, meant to convey total openness, is that of an experienced salesman."
+    },
+    {
+      "conversation_id": 533,
+      "line_id": 667,
+      "speaker_id": 401,
+      "text": "Degenerates? This man respects authority too much to see the truth inscribed upon thine own visage. Pretend thou art a paragon of virtue."
+    },
+    {
+      "conversation_id": 544,
+      "line_id": 90,
+      "speaker_id": 401,
+      "text": "Spit flies from your mouth to your moustache, your chest, the ground before you... No sound though."
+    },
+    {
+      "conversation_id": 544,
+      "line_id": 355,
+      "speaker_id": 401,
+      "text": "He's gloating at you. Oh, it's so easy for Mr. Teacher!"
+    },
+    {
+      "conversation_id": 544,
+      "line_id": 376,
+      "speaker_id": 401,
+      "text": "The tune on your lips forms a strange, yet undeniably beautiful contrast with the surrounding bleakness."
+    },
+    {
+      "conversation_id": 548,
+      "line_id": 132,
+      "speaker_id": 401,
+      "text": "A very good call."
+    },
+    {
+      "conversation_id": 548,
+      "line_id": 151,
+      "speaker_id": 401,
+      "text": "Can't write a scene without knowing the actors. Ask more, get comfortable around her."
+    },
+    {
+      "conversation_id": 548,
+      "line_id": 306,
+      "speaker_id": 401,
+      "text": "For god's sake. Lie."
+    },
+    {
+      "conversation_id": 548,
+      "line_id": 346,
+      "speaker_id": 401,
+      "text": "A very good call. You must leave now, sire."
+    },
+    {
+      "conversation_id": 549,
+      "line_id": 567,
+      "speaker_id": 401,
+      "text": "A bullet deftly dodged, ssssire."
+    },
+    {
+      "conversation_id": 549,
+      "line_id": 624,
+      "speaker_id": 401,
+      "text": "What about that gremlin child from behind the Whirling-in-Ragssss?"
+    },
+    {
+      "conversation_id": 549,
+      "line_id": 688,
+      "speaker_id": 401,
+      "text": "Hypothetically sssspeaking, you might add."
+    },
+    {
+      "conversation_id": 549,
+      "line_id": 756,
+      "speaker_id": 401,
+      "text": "Now's your chance, ssssire. Which of your enemies would you most like to make trouble for?"
+    },
+    {
+      "conversation_id": 549,
+      "line_id": 820,
+      "speaker_id": 401,
+      "text": "He holds out his hands and blossoms his fingers, like a drama teacher setting the scene."
+    },
+    {
+      "conversation_id": 554,
+      "line_id": 35,
+      "speaker_id": 401,
+      "text": "The man speaks in the artificial cadence of a professor -- or someone who's been on too many radio shows."
+    },
+    {
+      "conversation_id": 554,
+      "line_id": 348,
+      "speaker_id": 401,
+      "text": "He's telling the truth. He hasn't seen anyone."
+    },
+    {
+      "conversation_id": 555,
+      "line_id": 354,
+      "speaker_id": 401,
+      "text": "Then why doth the lieutenant protest against spending time here? So often?"
+    },
+    {
+      "conversation_id": 556,
+      "line_id": 61,
+      "speaker_id": 401,
+      "text": "What *you* are is a *surprise*, get his wife on the phone..."
+    },
+    {
+      "conversation_id": 556,
+      "line_id": 202,
+      "speaker_id": 401,
+      "text": "No, what *you* are is a *surprise*, get his wife on the phone..."
+    },
+    {
+      "conversation_id": 557,
+      "line_id": 202,
+      "speaker_id": 401,
+      "text": "*Sssurveys* are a good way to fish for personal information, especially in the name of public sssafety..."
+    },
+    {
+      "conversation_id": 557,
+      "line_id": 236,
+      "speaker_id": 401,
+      "text": "'Tis not an act, my liege -- saving, perchance, he hath deceived his very self. This man is a zealot."
+    },
+    {
+      "conversation_id": 557,
+      "line_id": 392,
+      "speaker_id": 401,
+      "text": "Too gleeful, those words -- he is lying. Not to you -- to his very own self."
+    },
+    {
+      "conversation_id": 558,
+      "line_id": 785,
+      "speaker_id": 401,
+      "text": "She hast not seen her, sire. 'Tis true."
+    },
+    {
+      "conversation_id": 575,
+      "line_id": 100,
+      "speaker_id": 401,
+      "text": "Sssssire, you could learn much from thisss Mullen, if you underssstood who he issss...."
+    },
+    {
+      "conversation_id": 586,
+      "line_id": 88,
+      "speaker_id": 401,
+      "text": "As always -- lie."
+    },
+    {
+      "conversation_id": 587,
+      "line_id": 373,
+      "speaker_id": 401,
+      "text": "Make it... *lively*!"
+    },
+    {
+      "conversation_id": 601,
+      "line_id": 106,
+      "speaker_id": 401,
+      "text": "The human lie-detector."
+    },
+    {
+      "conversation_id": 601,
+      "line_id": 121,
+      "speaker_id": 401,
+      "text": "He is not enthused about the idea."
+    },
+    {
+      "conversation_id": 602,
+      "line_id": 54,
+      "speaker_id": 401,
+      "text": "Oh, those again? I have been trying to wean you off them."
+    },
+    {
+      "conversation_id": 602,
+      "line_id": 258,
+      "speaker_id": 401,
+      "text": "She iseth the fairest of them all. The ugliness of lies wouldst never escape her lips!"
+    },
+    {
+      "conversation_id": 602,
+      "line_id": 268,
+      "speaker_id": 401,
+      "text": "You know, when you put your gun, your *actual* gun, on your temple and pretend to shoot your brains out? Off of that. People don't like that."
+    },
+    {
+      "conversation_id": 603,
+      "line_id": 103,
+      "speaker_id": 401,
+      "text": "Sire, the boy has *not* really been in thine room. 'Tis but a falsification."
+    },
+    {
+      "conversation_id": 603,
+      "line_id": 294,
+      "speaker_id": 401,
+      "text": "Sire, it just *went off*!"
+    },
+    {
+      "conversation_id": 605,
+      "line_id": 202,
+      "speaker_id": 401,
+      "text": "With a grin he points to the cheque again. It's like you're on a game show... *At least* don't thank him for it."
+    },
+    {
+      "conversation_id": 605,
+      "line_id": 234,
+      "speaker_id": 401,
+      "text": "The reaction appears to be sincere, but... it's impossible to tell with this guy, honestly."
+    },
+    {
+      "conversation_id": 605,
+      "line_id": 255,
+      "speaker_id": 401,
+      "text": "That note of contempt in his voice is sincere, sssire."
+    },
+    {
+      "conversation_id": 605,
+      "line_id": 529,
+      "speaker_id": 401,
+      "text": "When he said \"don't worry\" he actually meant \"be very worried.\""
+    },
+    {
+      "conversation_id": 605,
+      "line_id": 626,
+      "speaker_id": 401,
+      "text": "It's not gonna be as easy this time."
+    },
+    {
+      "conversation_id": 605,
+      "line_id": 669,
+      "speaker_id": 401,
+      "text": "Not for one second did he believe there's an actual mega rich person somewhere in his containertown."
+    },
+    {
+      "conversation_id": 605,
+      "line_id": 733,
+      "speaker_id": 401,
+      "text": "He's playing it cool, but he knows his ploy didn't work."
+    },
+    {
+      "conversation_id": 617,
+      "line_id": 52,
+      "speaker_id": 401,
+      "text": "Of course, sire, of course."
+    },
+    {
+      "conversation_id": 617,
+      "line_id": 69,
+      "speaker_id": 401,
+      "text": "Surely it was nothing, sire. Just paranoia."
+    },
+    {
+      "conversation_id": 617,
+      "line_id": 93,
+      "speaker_id": 401,
+      "text": "There's a little meanness in that smile."
+    },
+    {
+      "conversation_id": 617,
+      "line_id": 213,
+      "speaker_id": 401,
+      "text": "You get a strange feeling, looking at that smile. It spoils the moment. It is disingenuous."
+    },
+    {
+      "conversation_id": 617,
+      "line_id": 289,
+      "speaker_id": 401,
+      "text": "Yes, think about the cute grandma, not the weird snow."
+    },
+    {
+      "conversation_id": 617,
+      "line_id": 429,
+      "speaker_id": 401,
+      "text": "She feels interrogated now. It's hard to say if she's lying."
+    },
+    {
+      "conversation_id": 625,
+      "line_id": 39,
+      "speaker_id": 401,
+      "text": "Can't you see the *sire* is tired of these... fabrications. *RAC* is clearly what it says on the case files. These are official documents. There is no arguing with *official* documents."
+    },
+    {
+      "conversation_id": 625,
+      "line_id": 894,
+      "speaker_id": 401,
+      "text": "He understands you're *concealing* something, sire."
+    },
+    {
+      "conversation_id": 629,
+      "line_id": 82,
+      "speaker_id": 401,
+      "text": "You should adopt one of those welkins as your *persona*. No longer a mere man -- but a welkin..."
+    },
+    {
+      "conversation_id": 631,
+      "line_id": 177,
+      "speaker_id": 401,
+      "text": "What situation?"
+    },
+    {
+      "conversation_id": 631,
+      "line_id": 893,
+      "speaker_id": 401,
+      "text": "Unbelievable, sire. Even the *performance* artists didn't work."
+    },
+    {
+      "conversation_id": 631,
+      "line_id": 1190,
+      "speaker_id": 401,
+      "text": "Everyone *knows* you can't trust artists. They're nearly as bad as *clowns*."
+    },
+    {
+      "conversation_id": 631,
+      "line_id": 1191,
+      "speaker_id": 401,
+      "text": "Unbelievable, sire. Even the *arlecchinos* didn't work."
+    },
+    {
+      "conversation_id": 631,
+      "line_id": 1259,
+      "speaker_id": 401,
+      "text": "No way. She's more. She can make decisions."
+    },
+    {
+      "conversation_id": 631,
+      "line_id": 1316,
+      "speaker_id": 401,
+      "text": "'Twas stolen by some *artist*, surely. Best to pin the blame on them. Everyone *knows* you can't trust artists."
+    },
+    {
+      "conversation_id": 632,
+      "line_id": 204,
+      "speaker_id": 401,
+      "text": "She's being truthful. She is pressing them as hard as she can."
+    },
+    {
+      "conversation_id": 635,
+      "line_id": 210,
+      "speaker_id": 401,
+      "text": "Of course. Politics is showmanship. He is constantly performing for us... and lying too. I am sorry I don't catch more of his falsehoods, there are just so *many*..."
+    },
+    {
+      "conversation_id": 635,
+      "line_id": 431,
+      "speaker_id": 401,
+      "text": "Of course. Brinkmanship takes showmanship. We should have seen it before, in his office. He might well have been performing for us."
+    },
+    {
+      "conversation_id": 635,
+      "line_id": 628,
+      "speaker_id": 401,
+      "text": "Hmm... perhaps he is?"
+    },
+    {
+      "conversation_id": 635,
+      "line_id": 682,
+      "speaker_id": 401,
+      "text": "My liege, this woman has half-convinced herself already. All it would take is a little nudge..."
+    },
+    {
+      "conversation_id": 635,
+      "line_id": 814,
+      "speaker_id": 401,
+      "text": "Could it be all my fellows have failed? Alack and alas, sire! Forgive me! I shall do my best to end this pantomime..."
+    },
+    {
+      "conversation_id": 636,
+      "line_id": 777,
+      "speaker_id": 401,
+      "text": "Yes! And *lie* about it too! To her!"
+    },
+    {
+      "conversation_id": 636,
+      "line_id": 804,
+      "speaker_id": 401,
+      "text": "Yes, reality is your side-case."
+    },
+    {
+      "conversation_id": 636,
+      "line_id": 945,
+      "speaker_id": 401,
+      "text": "There is no way in *any* reality that she's still buying your *shtick*. Better drop it."
+    },
+    {
+      "conversation_id": 639,
+      "line_id": 51,
+      "speaker_id": 401,
+      "text": "A man like Easy Leo could have said anything. Do not be restrained, sire."
+    },
+    {
+      "conversation_id": 639,
+      "line_id": 77,
+      "speaker_id": 401,
+      "text": "Her entire character has shifted. This young woman is cold as ice."
+    },
+    {
+      "conversation_id": 639,
+      "line_id": 135,
+      "speaker_id": 401,
+      "text": "Her entire character has shifted. This young woman is cold as ice."
+    },
+    {
+      "conversation_id": 639,
+      "line_id": 251,
+      "speaker_id": 401,
+      "text": "Strange. It's as if people don't believe a cop could be a socialist revolutionary."
+    },
+    {
+      "conversation_id": 639,
+      "line_id": 262,
+      "speaker_id": 401,
+      "text": "It's not her. She's not a Hardie girl. Definitely."
+    },
+    {
+      "conversation_id": 640,
+      "line_id": 382,
+      "speaker_id": 401,
+      "text": "Do not let their squeals disturb your serenity. These are but simple peasants, sire."
+    },
+    {
+      "conversation_id": 641,
+      "line_id": 80,
+      "speaker_id": 401,
+      "text": "Sssssssshe's lying. Probably hated it. They all did."
+    },
+    {
+      "conversation_id": 641,
+      "line_id": 132,
+      "speaker_id": 401,
+      "text": "She actually *did*!"
+    },
+    {
+      "conversation_id": 642,
+      "line_id": 200,
+      "speaker_id": 401,
+      "text": "He might be wearing a disguise."
+    },
+    {
+      "conversation_id": 661,
+      "line_id": 73,
+      "speaker_id": 401,
+      "text": "He doesn't."
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 178,
+      "speaker_id": 401,
+      "text": "Yes, you. He's talking about you, you boring stiff."
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 237,
+      "speaker_id": 401,
+      "text": "It's all very organic -- her mannerisms, her movements. If she's acting, she's quite gifted."
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 285,
+      "speaker_id": 401,
+      "text": "Me? What did I do? I'm merely a master thespian..."
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 324,
+      "speaker_id": 401,
+      "text": "We will see through deceits. You are shielded. You are wise."
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 371,
+      "speaker_id": 401,
+      "text": "She isth a laedy most fair and juste!"
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 405,
+      "speaker_id": 401,
+      "text": "She isth a laedy most fair and juste!"
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 609,
+      "speaker_id": 401,
+      "text": "It's all very organic -- her mannerisms, her movements. If she's acting, she's quite gifted."
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 642,
+      "speaker_id": 401,
+      "text": "Me? What did I do?"
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 713,
+      "speaker_id": 401,
+      "text": "She looks a bit like a little girl who's just been complimented on her bike repair skills."
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 719,
+      "speaker_id": 401,
+      "text": "I'm not picking up any theatre-craft here, sir. The pause is sincere."
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 726,
+      "speaker_id": 401,
+      "text": "Yes, you. He's talking about you, you boring stiff."
+    },
+    {
+      "conversation_id": 675,
+      "line_id": 741,
+      "speaker_id": 401,
+      "text": "We're not *entirely* convinced about that answer, but okay -- let it slide. Pushing won't help here."
+    },
+    {
+      "conversation_id": 676,
+      "line_id": 70,
+      "speaker_id": 401,
+      "text": "That's a strange thing to suggest. The laedy iseth faere and juste!"
+    },
+    {
+      "conversation_id": 676,
+      "line_id": 206,
+      "speaker_id": 401,
+      "text": "He's lying."
+    },
+    {
+      "conversation_id": 676,
+      "line_id": 247,
+      "speaker_id": 401,
+      "text": "He's lying."
+    },
+    {
+      "conversation_id": 676,
+      "line_id": 388,
+      "speaker_id": 401,
+      "text": "What? Huh? The truth? All the world's a stage! Aren't we *all* just actors?"
+    },
+    {
+      "conversation_id": 676,
+      "line_id": 637,
+      "speaker_id": 401,
+      "text": "Everything checks out here. It's all A-Okay. Good answer."
+    },
+    {
+      "conversation_id": 680,
+      "line_id": 28,
+      "speaker_id": 401,
+      "text": "'Tis art."
+    },
+    {
+      "conversation_id": 685,
+      "line_id": 12,
+      "speaker_id": 401,
+      "text": "You would have caught it."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 35,
+      "speaker_id": 401,
+      "text": "Stop staring and say something dramatic and professional!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 46,
+      "speaker_id": 401,
+      "text": "See?!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 64,
+      "speaker_id": 401,
+      "text": "Who... what... Dear god, you've been lied to! She could have killed her lover and lied to everyone! She's not *candid* at all, she's smoke and mirrors and will-o-wisps!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 137,
+      "speaker_id": 401,
+      "text": "You *may* sometimes be bad at reading her, but this time, truly -- she's telling you how it really went down."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 155,
+      "speaker_id": 401,
+      "text": "Okay, he's too busy doing something else now. I meant Rhetoric. Anyway, don't listen to that guy -- we're right, she's saintly. Carry on."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 161,
+      "speaker_id": 401,
+      "text": "If you have doubts, just give us *one* example of deceit! Just one, and we will gladly change our minds."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 199,
+      "speaker_id": 401,
+      "text": "Who hath told you these *lies*? She was merely confused by the esoteric arts you deploy in policework."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 266,
+      "speaker_id": 401,
+      "text": "Seditious talk! That was not even Our Wise Council, it was this shithead! This one. The next one."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 267,
+      "speaker_id": 401,
+      "text": "Your paranoia is unflattering. She has been nothing but forthcoming and you're staring mutely into her face like a donkey!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 330,
+      "speaker_id": 401,
+      "text": "*Laedyfolk* do not know of such things -- ballistics and weapons of war. She is too young and frail."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 392,
+      "speaker_id": 401,
+      "text": "Welcome to the wake-up club, brother."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 399,
+      "speaker_id": 401,
+      "text": "So you say! But give us one example of deceit -- just *one* example."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 402,
+      "speaker_id": 401,
+      "text": "Definitely, sire."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 404,
+      "speaker_id": 401,
+      "text": "By god, she's playing him too! Like a fiddle, sire... Who would have known?"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 406,
+      "speaker_id": 401,
+      "text": "She's gearing up for a last stand. This is it."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 418,
+      "speaker_id": 401,
+      "text": "She probably didn't make the god damn call either. And her name is not Klaasje Amandou -- why would she give her real name? Arrest her immediately!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 476,
+      "speaker_id": 401,
+      "text": "What was that question about? She's feeding her friend to the wolves here."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 482,
+      "speaker_id": 401,
+      "text": "Yes they can! For *lying*!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 553,
+      "speaker_id": 401,
+      "text": "SHUT UP! He's making a decision and it's *his* to make."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 641,
+      "speaker_id": 401,
+      "text": "Gosh, she's so young, isn't she? She would look spectacular in a *starring role*!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 725,
+      "speaker_id": 401,
+      "text": "That's not the answer she was hoping for. Thought that you were some kind of patriot, or communard, did she?"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 783,
+      "speaker_id": 401,
+      "text": "That's right. Stern and merciless now, STERN AND MERCILESS as we reel her in."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 789,
+      "speaker_id": 401,
+      "text": "Don't let your imagination run wild here, sire. Keep it on track."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 795,
+      "speaker_id": 401,
+      "text": "This may have been a *grave* mistake, sire."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 823,
+      "speaker_id": 401,
+      "text": "You asked her before if he enjoyed it! She avoided it. How did I not discern it was a lie?"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 833,
+      "speaker_id": 401,
+      "text": "There iseth no doubt! The laedy could not bear the sight of her lover splayed and disfigured. A horrible story."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 861,
+      "speaker_id": 401,
+      "text": "Arrest the liar! Now."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 867,
+      "speaker_id": 401,
+      "text": "'Tis true, the laedy hath tried to avoid falsehoods."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 971,
+      "speaker_id": 401,
+      "text": "You should stop staring at her and say something. This is costing you *credibility and power* in her eyes."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 972,
+      "speaker_id": 401,
+      "text": "Stop staring at her eyes and say something pertinent to the case! This is making you look like an *amateur*."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 991,
+      "speaker_id": 401,
+      "text": "The political gambit has failed."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1039,
+      "speaker_id": 401,
+      "text": "Be careful not to look too long into her soon-to-be-famous face, lest it make you look like an indecisive suitor."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1080,
+      "speaker_id": 401,
+      "text": "No. That won't be necessary. Just leave her alone, she's been through enough. She doesn't need this... police brutality."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1082,
+      "speaker_id": 401,
+      "text": "True, sire. 'Tis true."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1084,
+      "speaker_id": 401,
+      "text": "She definitely called the cops. That was *task complete*. It could not hath been a *lie*. That is impossible."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1117,
+      "speaker_id": 401,
+      "text": "What are you talking about? She's afraid you'll *arrest* her."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1124,
+      "speaker_id": 401,
+      "text": "Her political overture has succeeded, we see?"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1146,
+      "speaker_id": 401,
+      "text": "She probably didn't give you her real name either -- why would she? Arrest her immediately, before she further entangles you in her *web of lies*!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1148,
+      "speaker_id": 401,
+      "text": "Very good, sire. She will never admit to it, but we can *see* that she didn't."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1151,
+      "speaker_id": 401,
+      "text": "Look at her! Her hands, her nails, the cigarette... Every second you stall, you become more entangled in this spider's *web of lies*. Arrest her immediately!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1175,
+      "speaker_id": 401,
+      "text": "But we *are* awake, sire! She has been forthcoming -- with sordid details women usually conceal! Most *shocking* details of the sexual kind! We are a bulwark, un-breached..."
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1176,
+      "speaker_id": 401,
+      "text": "Who is this *personhood* picking these seditious options? Can't you see the detective grows weary of your malcontent?!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1181,
+      "speaker_id": 401,
+      "text": "Anyone could know that, sire. By looking around and calling the desk. I don't believe a single word she says!"
+    },
+    {
+      "conversation_id": 688,
+      "line_id": 1212,
+      "speaker_id": 401,
+      "text": "She might have been a tad disingenuous when she avoided talking about the bullet in his head *before...*"
+    },
+    {
+      "conversation_id": 692,
+      "line_id": 5,
+      "speaker_id": 401,
+      "text": "Gone forever... Sire, thee shall never findeth another mistress quaint like her!"
+    },
+    {
+      "conversation_id": 704,
+      "line_id": 146,
+      "speaker_id": 401,
+      "text": "He may have some idea -- but he's not gonna get into it with you."
+    },
+    {
+      "conversation_id": 704,
+      "line_id": 189,
+      "speaker_id": 401,
+      "text": "He is definitely not on La Puta Madre's take."
+    },
+    {
+      "conversation_id": 705,
+      "line_id": 133,
+      "speaker_id": 401,
+      "text": "He's telling the truth."
+    },
+    {
+      "conversation_id": 705,
+      "line_id": 234,
+      "speaker_id": 401,
+      "text": "Sire, the boy believes this to be true. He's giving you a last chance."
+    },
+    {
+      "conversation_id": 721,
+      "line_id": 173,
+      "speaker_id": 401,
+      "text": "Why, what a splendid rendition these two rapsssssssssscallions have offered us here today! Faultless memorization! Perchance they'll enjoy greatness as a double-act in the Performing Artsss."
+    },
+    {
+      "conversation_id": 761,
+      "line_id": 151,
+      "speaker_id": 401,
+      "text": "Not in a million years does he believe Cuno is armed. Perhaps it's the best end he can hope for?"
+    },
+    {
+      "conversation_id": 761,
+      "line_id": 293,
+      "speaker_id": 401,
+      "text": "Even with the intensity he's putting in those words, and the fidgeting in his pocket, the kid is unconvincing."
+    },
+    {
+      "conversation_id": 761,
+      "line_id": 480,
+      "speaker_id": 401,
+      "text": "Look at him raise his bushy brows. That's a lie. He's empty."
+    },
+    {
+      "conversation_id": 761,
+      "line_id": 481,
+      "speaker_id": 401,
+      "text": "You were right."
+    },
+    {
+      "conversation_id": 761,
+      "line_id": 577,
+      "speaker_id": 401,
+      "text": "There was something there -- when he said *talked to her*? He was curious..."
+    },
+    {
+      "conversation_id": 761,
+      "line_id": 640,
+      "speaker_id": 401,
+      "text": "Don't be so sure..."
+    },
+    {
+      "conversation_id": 767,
+      "line_id": 442,
+      "speaker_id": 401,
+      "text": "She is trying to muster enthusiasm."
+    },
+    {
+      "conversation_id": 767,
+      "line_id": 822,
+      "speaker_id": 401,
+      "text": "Lies, sire! She cannot but love you. She  has said so a hundred times."
+    },
+    {
+      "conversation_id": 776,
+      "line_id": 613,
+      "speaker_id": 401,
+      "text": "A look of betrayal. The secret has been revealed!"
+    },
+    {
+      "conversation_id": 777,
+      "line_id": 9,
+      "speaker_id": 401,
+      "text": "The machinery of his mind is at work, sire! With swiftness the gears do turn, for to produce *deceit*! He seeks to hide his fondness for his favourite channel, Speedfreaks FM!"
+    },
+    {
+      "conversation_id": 777,
+      "line_id": 47,
+      "speaker_id": 401,
+      "text": "You have seen through the veil he would have drawn o're your eyes. Do with this what thou wilt!"
+    },
+    {
+      "conversation_id": 780,
+      "line_id": 2,
+      "speaker_id": 401,
+      "text": "Even before you can get the words out, everything gets scrambled in your brain."
+    },
+    {
+      "conversation_id": 780,
+      "line_id": 147,
+      "speaker_id": 401,
+      "text": "Lying over the phone? It's easy! Just say it like it's the truth -- and then it becomes it."
+    },
+    {
+      "conversation_id": 784,
+      "line_id": 9,
+      "speaker_id": 401,
+      "text": "He sincerely has no idea what you were talking about -- and he doesn't care either."
+    },
+    {
+      "conversation_id": 785,
+      "line_id": 52,
+      "speaker_id": 401,
+      "text": "As you look at the folder, Evrart covers it with his hand and pets it. Is he trying to hide that it's not a real RCM folder? It certainly doesn't have the RCM stamp on it."
+    },
+    {
+      "conversation_id": 785,
+      "line_id": 68,
+      "speaker_id": 401,
+      "text": "Evrart's large hands are covering the folder, but the look on his face says *I know everything about you, Harry*."
+    },
+    {
+      "conversation_id": 785,
+      "line_id": 70,
+      "speaker_id": 401,
+      "text": "He got the name from the Census Bureau and everything else from your behaviour here in Martinaise."
+    },
+    {
+      "conversation_id": 785,
+      "line_id": 210,
+      "speaker_id": 401,
+      "text": "Don't just jump to the folder. That's not smart, shows you're on the edge. Do some probing first."
+    },
+    {
+      "conversation_id": 786,
+      "line_id": 24,
+      "speaker_id": 401,
+      "text": "\"Don't you worry, I've got plenty on you too, my rigid friend.\""
+    },
+    {
+      "conversation_id": 789,
+      "line_id": 17,
+      "speaker_id": 401,
+      "text": "He really doesn't know."
+    },
+    {
+      "conversation_id": 789,
+      "line_id": 34,
+      "speaker_id": 401,
+      "text": "He really doesn't."
+    },
+    {
+      "conversation_id": 789,
+      "line_id": 244,
+      "speaker_id": 401,
+      "text": "We would've preferred trickery, but the choice was yours, sire, as always. You are the liege. And you're *in*."
+    },
+    {
+      "conversation_id": 789,
+      "line_id": 257,
+      "speaker_id": 401,
+      "text": "Better not to gloat, sire. 'Tis *arrogance* that gives the play away. Be subtle."
+    },
+    {
+      "conversation_id": 789,
+      "line_id": 310,
+      "speaker_id": 401,
+      "text": "Well done, sire. By guile and deceit, you're in."
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 69,
+      "speaker_id": 401,
+      "text": "Oddly, it seems to be true."
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 104,
+      "speaker_id": 401,
+      "text": "A guy who has antagonized the Union in a Union-run town? Maybe it's political?"
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 138,
+      "speaker_id": 401,
+      "text": "He *was* testing you. And you succeeded."
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 267,
+      "speaker_id": 401,
+      "text": "It's impossible to say if he's telling the truth, sire."
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 325,
+      "speaker_id": 401,
+      "text": "He's trying to figure out if you're lying."
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 384,
+      "speaker_id": 401,
+      "text": "You didn't say it with nearly enough confidence."
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 388,
+      "speaker_id": 401,
+      "text": "He thinks it's closer to 60-40. 60 they didn't do it."
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 399,
+      "speaker_id": 401,
+      "text": "An excellent opportunity presents itself, sire! You could win the trust of the arch-liar, pretend to play into his hand -- then, should you wish, bend his efforts towards your own!"
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 536,
+      "speaker_id": 401,
+      "text": "Good, now take it a bit further. Take it home."
+    },
+    {
+      "conversation_id": 790,
+      "line_id": 537,
+      "speaker_id": 401,
+      "text": "He was testing you. You succeeded."
+    },
+    {
+      "conversation_id": 806,
+      "line_id": 28,
+      "speaker_id": 401,
+      "text": "Just keep it simple. He said they killed him. These uninitiated do not understand the fineries of Runic Science."
+    },
+    {
+      "conversation_id": 806,
+      "line_id": 383,
+      "speaker_id": 401,
+      "text": "Sire, the tale is true."
+    },
+    {
+      "conversation_id": 806,
+      "line_id": 385,
+      "speaker_id": 401,
+      "text": "This one has a distinct style. He puts so much whiny emotion into everything he says it's hard to see if he's lying. But he *could* be."
+    },
+    {
+      "conversation_id": 806,
+      "line_id": 437,
+      "speaker_id": 401,
+      "text": "Interesting, sire. It's as if he's lying -- to *protect* someone. He's not very good at it."
+    },
+    {
+      "conversation_id": 806,
+      "line_id": 487,
+      "speaker_id": 401,
+      "text": "There's something odd here."
+    },
+    {
+      "conversation_id": 806,
+      "line_id": 576,
+      "speaker_id": 401,
+      "text": "He may be lying, but he's good at it. No twitching, no rushing, no uncalled-for details."
+    },
+    {
+      "conversation_id": 807,
+      "line_id": 82,
+      "speaker_id": 401,
+      "text": "Let's call this one The Musician."
+    },
+    {
+      "conversation_id": 809,
+      "line_id": 72,
+      "speaker_id": 401,
+      "text": "They're confused. This is growing over their heads."
+    },
+    {
+      "conversation_id": 809,
+      "line_id": 103,
+      "speaker_id": 401,
+      "text": "Who could? It's getting harder and harder to perform one's part in this sordid play. All it takes is a nudge..."
+    },
+    {
+      "conversation_id": 810,
+      "line_id": 31,
+      "speaker_id": 401,
+      "text": "Whatever -- just do the fiddle-thing, sire. It'll be artistic... and if you've already done it, do it *again*!"
+    },
+    {
+      "conversation_id": 810,
+      "line_id": 119,
+      "speaker_id": 401,
+      "text": "He's working really, really hard to spin this."
+    },
+    {
+      "conversation_id": 810,
+      "line_id": 250,
+      "speaker_id": 401,
+      "text": "He's working really, really hard to spin this. It's not easy."
+    },
+    {
+      "conversation_id": 810,
+      "line_id": 371,
+      "speaker_id": 401,
+      "text": "That's all he knows -- that's all she's told him."
+    },
+    {
+      "conversation_id": 810,
+      "line_id": 450,
+      "speaker_id": 401,
+      "text": "He's working really, really hard to spin this, but it's not easy."
+    },
+    {
+      "conversation_id": 814,
+      "line_id": 133,
+      "speaker_id": 401,
+      "text": "That's a lie."
+    },
+    {
+      "conversation_id": 814,
+      "line_id": 233,
+      "speaker_id": 401,
+      "text": "Say: \"Five hundred Lears and I can't remember the first line!!!\""
+    },
+    {
+      "conversation_id": 814,
+      "line_id": 360,
+      "speaker_id": 401,
+      "text": "Sort of -- but *he* doesn't have to know that!"
+    },
+    {
+      "conversation_id": 814,
+      "line_id": 657,
+      "speaker_id": 401,
+      "text": "The tracks were recent -- but *not* worn down in the right foot like Ruby's. It's best to *omit* this pesky little polemic for now. Too *confusing*."
+    },
+    {
+      "conversation_id": 814,
+      "line_id": 824,
+      "speaker_id": 401,
+      "text": "No, no! He needs to say: \"Five hundred Lears and I can't remember the first line!\""
+    },
+    {
+      "conversation_id": 814,
+      "line_id": 975,
+      "speaker_id": 401,
+      "text": "*Definitely* lie. The truth is not credible."
+    },
+    {
+      "conversation_id": 816,
+      "line_id": 60,
+      "speaker_id": 401,
+      "text": "As always -- lie."
+    },
+    {
+      "conversation_id": 825,
+      "line_id": 69,
+      "speaker_id": 401,
+      "text": "Though she praises you, it is clear that she was taken aback by your response."
+    },
+    {
+      "conversation_id": 827,
+      "line_id": 93,
+      "speaker_id": 401,
+      "text": "He doesn't know anything."
+    },
+    {
+      "conversation_id": 827,
+      "line_id": 529,
+      "speaker_id": 401,
+      "text": "He considered it, but his priority was to get rid of the gun as quickly as possible -- albeit for a price."
+    },
+    {
+      "conversation_id": 827,
+      "line_id": 775,
+      "speaker_id": 401,
+      "text": "People as oleaginous as Evrart seem like they're lying even when they're really being truthful."
+    },
+    {
+      "conversation_id": 828,
+      "line_id": 185,
+      "speaker_id": 401,
+      "text": "The pose! The power! Yessssss, drag this part out and reel in your audience, darling. See if they will crack under the suspense."
+    },
+    {
+      "conversation_id": 835,
+      "line_id": 18,
+      "speaker_id": 401,
+      "text": "He doesn't really think you're a superstar or that you're well-off. He's only playing along because it's expedient."
+    },
+    {
+      "conversation_id": 841,
+      "line_id": 62,
+      "speaker_id": 401,
+      "text": "Lie, sire. For no reason."
+    },
+    {
+      "conversation_id": 849,
+      "line_id": 78,
+      "speaker_id": 401,
+      "text": "He's looking for sssigns of deceit..."
+    },
+    {
+      "conversation_id": 850,
+      "line_id": 371,
+      "speaker_id": 401,
+      "text": "Wait, is this a *joke*?!"
+    },
+    {
+      "conversation_id": 850,
+      "line_id": 445,
+      "speaker_id": 401,
+      "text": "But promisssscuity leads to dddrama!"
+    },
+    {
+      "conversation_id": 851,
+      "line_id": 188,
+      "speaker_id": 401,
+      "text": "He's just discovered that he can't think of any examples, though."
+    },
+    {
+      "conversation_id": 852,
+      "line_id": 77,
+      "speaker_id": 401,
+      "text": "His remorse is insincere. That gent's relieved to beest able to moveth on my liege."
+    },
+    {
+      "conversation_id": 868,
+      "line_id": 20,
+      "speaker_id": 401,
+      "text": "Her voice is shaky. What is going on here?"
+    },
+    {
+      "conversation_id": 868,
+      "line_id": 508,
+      "speaker_id": 401,
+      "text": "The glance is tender, yes, but tempered by something else, a thought she can't express even to him... Interesting."
+    },
+    {
+      "conversation_id": 868,
+      "line_id": 643,
+      "speaker_id": 401,
+      "text": "Though she praises you, it is clear that she was taken aback by your response."
+    },
+    {
+      "conversation_id": 868,
+      "line_id": 668,
+      "speaker_id": 401,
+      "text": "The sigh is tender, yes, but tempered by something else, a thought she can't express... Interesting."
+    },
+    {
+      "conversation_id": 868,
+      "line_id": 827,
+      "speaker_id": 401,
+      "text": "A lie?"
+    },
+    {
+      "conversation_id": 873,
+      "line_id": 40,
+      "speaker_id": 401,
+      "text": "Sire, may we suggest something? Think of the yelling-into-the-furnace as a *grand performance*. Use your chest voice, not your head voice. Sing from the diaphragm."
+    },
+    {
+      "conversation_id": 882,
+      "line_id": 73,
+      "speaker_id": 401,
+      "text": "He's trying to dive deep into the mysteries of his *shirt*!"
+    },
+    {
+      "conversation_id": 892,
+      "line_id": 148,
+      "speaker_id": 401,
+      "text": "He doesn't care one way or another. For him, it's all one entertaining chamber play."
+    },
+    {
+      "conversation_id": 892,
+      "line_id": 168,
+      "speaker_id": 401,
+      "text": "He's assuming a role to mock you -- or to entertain himself with your ignorance. Don't fall for it!"
+    },
+    {
+      "conversation_id": 942,
+      "line_id": 38,
+      "speaker_id": 401,
+      "text": "Performing? Yesss, birdie!"
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 2,
+      "speaker_id": 401,
+      "text": "The air is thick with anticipation."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 42,
+      "speaker_id": 401,
+      "text": "A lazy applause fills the room. You feel your hands shake as awareness of your body returns to you."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 48,
+      "speaker_id": 401,
+      "text": "Someone dims the lights as the music starts. A lump's in your throat suddenly..."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 50,
+      "speaker_id": 401,
+      "text": "Did you hear that? The most pathetic applause in the world. Made of pity. No matter the time of day, or how small the audience -- this is a *pitiful* applause."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 63,
+      "speaker_id": 401,
+      "text": "The air is thick with anticipation."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 80,
+      "speaker_id": 401,
+      "text": "The tape clicks into the carousel and then the music starts... God, a lump's in your throat suddenly..."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 97,
+      "speaker_id": 401,
+      "text": "Do you hear that? The most pathetic applause in the world. Made of pity. No one *liked* you -- they think you're a joke."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 127,
+      "speaker_id": 401,
+      "text": "The air is thick with anticipation."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 130,
+      "speaker_id": 401,
+      "text": "This guy really carried you."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 157,
+      "speaker_id": 401,
+      "text": "Do you hear that? It's the most pathetic applause in the world, Harry. Made of pity. No one *liked* you."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 163,
+      "speaker_id": 401,
+      "text": "The air is thick with anticipation."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 164,
+      "speaker_id": 401,
+      "text": "Last words?"
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 171,
+      "speaker_id": 401,
+      "text": "Someone dims the lights as the music starts... Okay. Here we go..."
+    },
+    {
+      "conversation_id": 943,
+      "line_id": 172,
+      "speaker_id": 401,
+      "text": "The tape clicks into the carousel and then the music starts..."
+    },
+    {
+      "conversation_id": 944,
+      "line_id": 580,
+      "speaker_id": 401,
+      "text": "The pre-sneeze hype is unreal."
+    },
+    {
+      "conversation_id": 944,
+      "line_id": 677,
+      "speaker_id": 401,
+      "text": "Are we witnessing a performance, perhaps? Play along."
+    },
+    {
+      "conversation_id": 944,
+      "line_id": 947,
+      "speaker_id": 401,
+      "text": "Hmph, her improv skills could do with some work. That was a *pathetic* performance. Are we supposed to be scared? NONE OF US ARE SCARED!"
+    },
+    {
+      "conversation_id": 965,
+      "line_id": 182,
+      "speaker_id": 401,
+      "text": "I knew this would lead to something good!"
+    },
+    {
+      "conversation_id": 965,
+      "line_id": 192,
+      "speaker_id": 401,
+      "text": "We're still glad you did it, my liege. This was good training. For when you need to lie to save your life maybe?"
+    },
+    {
+      "conversation_id": 968,
+      "line_id": 3,
+      "speaker_id": 401,
+      "text": "She lied to you... about that *too*."
+    },
+    {
+      "conversation_id": 968,
+      "line_id": 139,
+      "speaker_id": 401,
+      "text": "She hasn't. She hasn't gone up against three armed people before. And she believed you."
+    },
+    {
+      "conversation_id": 968,
+      "line_id": 360,
+      "speaker_id": 401,
+      "text": "She doesn't want to talk about this, but not because she has something to hide -- she doesn't want the guilt."
+    },
+    {
+      "conversation_id": 968,
+      "line_id": 579,
+      "speaker_id": 401,
+      "text": "She doesn't believe you."
+    },
+    {
+      "conversation_id": 984,
+      "line_id": 68,
+      "speaker_id": 401,
+      "text": "He truly does not believe you are. Perhaps he shouldn't be so trusting..."
+    },
+    {
+      "conversation_id": 984,
+      "line_id": 169,
+      "speaker_id": 401,
+      "text": "He's not 100% sure you're not indebted to this very, very bad person."
+    },
+    {
+      "conversation_id": 985,
+      "line_id": 49,
+      "speaker_id": 401,
+      "text": "I hate to be the bearer of bad tidings, but I don't think she's perjuring herself."
+    },
+    {
+      "conversation_id": 985,
+      "line_id": 137,
+      "speaker_id": 401,
+      "text": "She speaketh truth."
+    },
+    {
+      "conversation_id": 985,
+      "line_id": 138,
+      "speaker_id": 401,
+      "text": "She speaketh truth."
+    },
+    {
+      "conversation_id": 985,
+      "line_id": 217,
+      "speaker_id": 401,
+      "text": "Klaasje only said they \"maybe kissed\". Someone is lying here."
+    },
+    {
+      "conversation_id": 985,
+      "line_id": 222,
+      "speaker_id": 401,
+      "text": "Maybe twist the knife? Just in case. Make her more desperate."
+    },
+    {
+      "conversation_id": 988,
+      "line_id": 93,
+      "speaker_id": 401,
+      "text": "I don't know... you're a *pretty* good liar. Are you as good an *infiltrator* as you are a liar?"
+    },
+    {
+      "conversation_id": 995,
+      "line_id": 77,
+      "speaker_id": 401,
+      "text": "I'm wondering if the poetics come with the jacket or are they derived from something else entirely?"
+    },
+    {
+      "conversation_id": 995,
+      "line_id": 453,
+      "speaker_id": 401,
+      "text": "He *did* mean Cindy the SKULL."
+    },
+    {
+      "conversation_id": 997,
+      "line_id": 701,
+      "speaker_id": 401,
+      "text": "Challenge him on this. Cause a scene."
+    },
+    {
+      "conversation_id": 998,
+      "line_id": 161,
+      "speaker_id": 401,
+      "text": "Stonewalling. Good technique."
+    },
+    {
+      "conversation_id": 998,
+      "line_id": 239,
+      "speaker_id": 401,
+      "text": "A very, very skilled thespian would detect a touch of drama when he says he doesn't know why it was conducted..."
+    },
+    {
+      "conversation_id": 998,
+      "line_id": 279,
+      "speaker_id": 401,
+      "text": "A touch of absurdity there, nice!"
+    },
+    {
+      "conversation_id": 1012,
+      "line_id": 131,
+      "speaker_id": 401,
+      "text": "A lie. They were probably pawned off for something ssssuspicious."
+    },
+    {
+      "conversation_id": 1012,
+      "line_id": 153,
+      "speaker_id": 401,
+      "text": "Fast and clean! A good one. Can't quite say it's a lie, but feels like one. She's better at lying than she'd like everyone to know."
+    },
+    {
+      "conversation_id": 1012,
+      "line_id": 266,
+      "speaker_id": 401,
+      "text": "Everything checks out, sire!"
+    },
+    {
+      "conversation_id": 1013,
+      "line_id": 6,
+      "speaker_id": 401,
+      "text": "C'mon. She obviously could. She already went into detail."
+    },
+    {
+      "conversation_id": 1013,
+      "line_id": 93,
+      "speaker_id": 401,
+      "text": "Your words flow sincere."
+    },
+    {
+      "conversation_id": 1013,
+      "line_id": 130,
+      "speaker_id": 401,
+      "text": "Thine lies, they sing too transparent."
+    },
+    {
+      "conversation_id": 1013,
+      "line_id": 202,
+      "speaker_id": 401,
+      "text": "C'mon. She obviously could. She already went into detail."
+    },
+    {
+      "conversation_id": 1015,
+      "line_id": 50,
+      "speaker_id": 401,
+      "text": "Keep on it, sire."
+    },
+    {
+      "conversation_id": 1015,
+      "line_id": 60,
+      "speaker_id": 401,
+      "text": "He's like an actor looking to the souffleur for his line."
+    },
+    {
+      "conversation_id": 1015,
+      "line_id": 115,
+      "speaker_id": 401,
+      "text": "He appears sincere enough, sire. You could of course be wrong."
+    },
+    {
+      "conversation_id": 1015,
+      "line_id": 203,
+      "speaker_id": 401,
+      "text": "It's like he's lying to you, my liege. But he's slippery enough that there's nothing for you to grab hold of."
+    },
+    {
+      "conversation_id": 1016,
+      "line_id": 397,
+      "speaker_id": 401,
+      "text": "This is clearly a Code 31 emergency."
+    },
+    {
+      "conversation_id": 1016,
+      "line_id": 840,
+      "speaker_id": 401,
+      "text": "How about: \"Gather around, kids!\""
+    },
+    {
+      "conversation_id": 1030,
+      "line_id": 331,
+      "speaker_id": 401,
+      "text": "You might get scammed here."
+    },
+    {
+      "conversation_id": 1030,
+      "line_id": 580,
+      "speaker_id": 401,
+      "text": "...the pause is long and dramatic..."
+    },
+    {
+      "conversation_id": 1030,
+      "line_id": 678,
+      "speaker_id": 401,
+      "text": "Pretty sure you could dial up the melodrama to max and he still wouldn't figure it out."
+    },
+    {
+      "conversation_id": 1030,
+      "line_id": 917,
+      "speaker_id": 401,
+      "text": "Lies, lies, lies! He only speaks liessss."
+    },
+    {
+      "conversation_id": 1030,
+      "line_id": 1038,
+      "speaker_id": 401,
+      "text": "He really has no idea who this Ruby is, sire."
+    },
+    {
+      "conversation_id": 1030,
+      "line_id": 1201,
+      "speaker_id": 401,
+      "text": "It's like he knows *nothing* about you. Stinks of a man doing what's best for him, not his clientele."
+    },
+    {
+      "conversation_id": 1030,
+      "line_id": 1214,
+      "speaker_id": 401,
+      "text": "Sire, he's telling the truth."
+    },
+    {
+      "conversation_id": 1065,
+      "line_id": 265,
+      "speaker_id": 401,
+      "text": "It's much more about the dark and deadly atmossssphere."
+    },
+    {
+      "conversation_id": 1087,
+      "line_id": 16,
+      "speaker_id": 401,
+      "text": "'Tis true sire. He knows nothing."
+    },
+    {
+      "conversation_id": 1088,
+      "line_id": 17,
+      "speaker_id": 401,
+      "text": "But of course, sire. Looks like they're waiting for you to speak."
+    },
+    {
+      "conversation_id": 1088,
+      "line_id": 31,
+      "speaker_id": 401,
+      "text": "Unfortunately there doesn't seem to be anything worth mentioning among your achievements. You should resort to good old lying."
+    },
+    {
+      "conversation_id": 1088,
+      "line_id": 45,
+      "speaker_id": 401,
+      "text": "Strange, he didn't buy it."
+    },
+    {
+      "conversation_id": 1088,
+      "line_id": 67,
+      "speaker_id": 401,
+      "text": "Go long, go deep, go unconventional!"
+    },
+    {
+      "conversation_id": 1088,
+      "line_id": 74,
+      "speaker_id": 401,
+      "text": "Of course, it's your call. But he would have been *really* impressed."
+    },
+    {
+      "conversation_id": 1088,
+      "line_id": 82,
+      "speaker_id": 401,
+      "text": "He'll get it. Don't worry, just continue -- he's *gonna* be impressed."
+    },
+    {
+      "conversation_id": 1088,
+      "line_id": 134,
+      "speaker_id": 401,
+      "text": "Strange, he didn't buy it."
+    },
+    {
+      "conversation_id": 1088,
+      "line_id": 135,
+      "speaker_id": 401,
+      "text": "Odd, he didn't buy it."
+    },
+    {
+      "conversation_id": 1089,
+      "line_id": 19,
+      "speaker_id": 401,
+      "text": "This guy can act. Not sure I would have caught it if we hadn't *seen* him cheating."
+    },
+    {
+      "conversation_id": 1089,
+      "line_id": 68,
+      "speaker_id": 401,
+      "text": "He's faking."
+    },
+    {
+      "conversation_id": 1090,
+      "line_id": 3,
+      "speaker_id": 401,
+      "text": "So that's what it was, before! Him hiding something. He tries to make it look like he's a big deal in the Union and now the illusion is disintegrating before your -- and René's -- eyes."
+    },
+    {
+      "conversation_id": 1090,
+      "line_id": 15,
+      "speaker_id": 401,
+      "text": "Odd... He doesn't seem to be lying, but there's something off here."
+    },
+    {
+      "conversation_id": 1091,
+      "line_id": 130,
+      "speaker_id": 401,
+      "text": "He knows exactly what's going on."
+    },
+    {
+      "conversation_id": 1092,
+      "line_id": 76,
+      "speaker_id": 401,
+      "text": "For emphasis. A *ghost* is saying this. A shit-eating psychopathic ghost with an ace up his sleeve."
+    },
+    {
+      "conversation_id": 1092,
+      "line_id": 84,
+      "speaker_id": 401,
+      "text": "This boy of twelve does not know anyone from Graad, sire. We suspect the boy himself might be this mystery 'Martin'."
+    },
+    {
+      "conversation_id": 1092,
+      "line_id": 97,
+      "speaker_id": 401,
+      "text": "It's a dry laugh. Mirthless. She's not even actually enjoying this. She only wants to hurt you."
+    },
+    {
+      "conversation_id": 1092,
+      "line_id": 99,
+      "speaker_id": 401,
+      "text": "Oh god, do something quick, they're gonna start *that* again!"
+    },
+    {
+      "conversation_id": 1092,
+      "line_id": 239,
+      "speaker_id": 401,
+      "text": "You can almost hear the gears rattling -- a change in set decorations."
+    },
+    {
+      "conversation_id": 1092,
+      "line_id": 331,
+      "speaker_id": 401,
+      "text": "He does not know *killer* related shit, sire. It's a falseness. He *may* know mysterious shit, however... it's hard to tell."
+    },
+    {
+      "conversation_id": 1092,
+      "line_id": 376,
+      "speaker_id": 401,
+      "text": "The nearly psychopathic way they can slip in and out of the act implies you're not the first victim."
+    },
+    {
+      "conversation_id": 1093,
+      "line_id": 8,
+      "speaker_id": 401,
+      "text": "He's trying to hide the fact that he doesn't know."
+    },
+    {
+      "conversation_id": 1093,
+      "line_id": 9,
+      "speaker_id": 401,
+      "text": "The city's too large for him to have left. But he wasn't *here* either... So where was he?"
+    },
+    {
+      "conversation_id": 1093,
+      "line_id": 63,
+      "speaker_id": 401,
+      "text": "Stop choking or everyone will see you're a fake! All this *thespianism* isn't doing you any good!"
+    },
+    {
+      "conversation_id": 1093,
+      "line_id": 187,
+      "speaker_id": 401,
+      "text": "Yes, pray pardon, sire! Better to let it be. I did not mean to make you paranoid."
+    },
+    {
+      "conversation_id": 1093,
+      "line_id": 216,
+      "speaker_id": 401,
+      "text": "Curious, my liege. Why did Cuno feed you this information?"
+    },
+    {
+      "conversation_id": 1093,
+      "line_id": 230,
+      "speaker_id": 401,
+      "text": "Still, seems suspicious... He may have it in for that guy. Or you may be paranoid. That is also a possibility, sire."
+    },
+    {
+      "conversation_id": 1094,
+      "line_id": 22,
+      "speaker_id": 401,
+      "text": "The Golden Mouth Man is a liar. He can't be trusted, sire. He only wants to humiliate you."
+    },
+    {
+      "conversation_id": 1095,
+      "line_id": 7,
+      "speaker_id": 401,
+      "text": "Of course, sire. Better not anger the Cuno with this silliness. We regret bringing it up. A thousand years of misfortune upon us for bringing it up!"
+    },
+    {
+      "conversation_id": 1095,
+      "line_id": 30,
+      "speaker_id": 401,
+      "text": "He's hiding something."
+    },
+    {
+      "conversation_id": 1095,
+      "line_id": 96,
+      "speaker_id": 401,
+      "text": "But it is not hidden, is it, sire? You picked up on it. You should examine the pile of roofing material again."
+    },
+    {
+      "conversation_id": 1098,
+      "line_id": 138,
+      "speaker_id": 401,
+      "text": "He did."
+    },
+    {
+      "conversation_id": 1105,
+      "line_id": 487,
+      "speaker_id": 401,
+      "text": "Lie. Just -- bide your time, ask something. Then lie."
+    },
+    {
+      "conversation_id": 1105,
+      "line_id": 750,
+      "speaker_id": 401,
+      "text": "Trying to ascertain if it's not a blue candy wrapper or a piece of vinyl."
+    },
+    {
+      "conversation_id": 1125,
+      "line_id": 30,
+      "speaker_id": 401,
+      "text": "This Katarzine Alasije -- it's safe to say it's not her either. In short: you got lied to, sire. Maybe it's best we let her go -- at least we don't have to question her again."
+    },
+    {
+      "conversation_id": 1125,
+      "line_id": 107,
+      "speaker_id": 401,
+      "text": "This Katarzine Alasije -- it's safe to say it's not her either. In short: you got lied to, sire. Good luck to whoever is questioning her in the 57th right now."
+    },
+    {
+      "conversation_id": 1161,
+      "line_id": 81,
+      "speaker_id": 401,
+      "text": "Oooh, hidden things -- secrets, lies!"
+    },
+    {
+      "conversation_id": 1168,
+      "line_id": 24,
+      "speaker_id": 401,
+      "text": "Simpler? No. This is another loose thread you will *never* connect!"
+    },
+    {
+      "conversation_id": 1168,
+      "line_id": 498,
+      "speaker_id": 401,
+      "text": "He *lost* it, he just doesn't know where it is, forget it, push on..."
+    },
+    {
+      "conversation_id": 1168,
+      "line_id": 577,
+      "speaker_id": 401,
+      "text": "Lie! You have a witness."
+    },
+    {
+      "conversation_id": 1168,
+      "line_id": 610,
+      "speaker_id": 401,
+      "text": "He heard you. He just wants to hear you say it again. This is dramatic flare on his part... Right choice, we're in! Do it, sire!"
+    },
+    {
+      "conversation_id": 1168,
+      "line_id": 669,
+      "speaker_id": 401,
+      "text": "Sire, he doesn't have to be wearing them *right now*."
+    },
+    {
+      "conversation_id": 1168,
+      "line_id": 670,
+      "speaker_id": 401,
+      "text": "The prints were his, you can see it in those eyes, he can't keep them from flickering, looking for something..."
+    },
+    {
+      "conversation_id": 1179,
+      "line_id": 5,
+      "speaker_id": 401,
+      "text": "Yes, sire! Make a production of this examination!"
+    },
+    {
+      "conversation_id": 1180,
+      "line_id": 310,
+      "speaker_id": 401,
+      "text": "He's setting it up for you..."
+    },
+    {
+      "conversation_id": 1180,
+      "line_id": 445,
+      "speaker_id": 401,
+      "text": "Safe and sound, sire. Surely you have not misplaced the witness."
+    },
+    {
+      "conversation_id": 1181,
+      "line_id": 258,
+      "speaker_id": 401,
+      "text": "There is more here, but you may not have the information to pry it loose from him..."
+    },
+    {
+      "conversation_id": 1181,
+      "line_id": 306,
+      "speaker_id": 401,
+      "text": "Be abstract here. A bit of drama."
+    },
+    {
+      "conversation_id": 1181,
+      "line_id": 536,
+      "speaker_id": 401,
+      "text": "There is more here, you can feel it. He was not outright lying but almost..."
+    },
+    {
+      "conversation_id": 1182,
+      "line_id": 9,
+      "speaker_id": 401,
+      "text": "You will have to be very convincing and very *sober* to make them believe, sire."
+    },
+    {
+      "conversation_id": 1182,
+      "line_id": 641,
+      "speaker_id": 401,
+      "text": "No one would believe you without it."
+    },
+    {
+      "conversation_id": 1189,
+      "line_id": 288,
+      "speaker_id": 401,
+      "text": "Don't tell him about the phasmid. He *will not* believe it. IT. DIDN'T. HAPPEN."
+    },
+    {
+      "conversation_id": 1189,
+      "line_id": 601,
+      "speaker_id": 401,
+      "text": "He's really softening it up there."
+    },
+    {
+      "conversation_id": 1189,
+      "line_id": 851,
+      "speaker_id": 401,
+      "text": "You did not -- under any circumstances -- *talk* to it."
+    },
+    {
+      "conversation_id": 1192,
+      "line_id": 137,
+      "speaker_id": 401,
+      "text": "It's hard to say if he doesn't believe you -- or doesn't care."
+    },
+    {
+      "conversation_id": 1195,
+      "line_id": 9,
+      "speaker_id": 401,
+      "text": "Thou art honourable and just, sire. 'Tis the snakes who are vile! Hissing in the grass..."
+    },
+    {
+      "conversation_id": 1195,
+      "line_id": 31,
+      "speaker_id": 401,
+      "text": "Put on your prettiest face for the masses!"
+    },
+    {
+      "conversation_id": 1204,
+      "line_id": 67,
+      "speaker_id": 401,
+      "text": "There is *some* uncertainty in that motion, no? Smoothing the fabric like that, as if looking for some kind of confirmation..."
+    },
+    {
+      "conversation_id": 1208,
+      "line_id": 3,
+      "speaker_id": 401,
+      "text": "The kid is admitting falsehood, sire. He just doesn't know."
+    },
+    {
+      "conversation_id": 1208,
+      "line_id": 169,
+      "speaker_id": 401,
+      "text": "Good. Talk to him, demonstratively pick it up, then push it along with the other accusations. This is a good idea."
+    },
+    {
+      "conversation_id": 1208,
+      "line_id": 181,
+      "speaker_id": 401,
+      "text": "He tries to keep his voice casual and businesslike, but it trembles ever so slightly."
+    },
+    {
+      "conversation_id": 1209,
+      "line_id": 94,
+      "speaker_id": 401,
+      "text": "He's meant everything he said before; but right now he not only means it -- he is sincere."
+    },
+    {
+      "conversation_id": 1209,
+      "line_id": 232,
+      "speaker_id": 401,
+      "text": "She regresses and pretends she's a mythological creature when she's under too much stress."
+    },
+    {
+      "conversation_id": 1209,
+      "line_id": 261,
+      "speaker_id": 401,
+      "text": "He speaks the truth, my liege."
+    },
+    {
+      "conversation_id": 1212,
+      "line_id": 38,
+      "speaker_id": 401,
+      "text": "There is genuine disappointment below the act, sire."
+    },
+    {
+      "conversation_id": 1212,
+      "line_id": 198,
+      "speaker_id": 401,
+      "text": "Belying the act, he's actually telling the truth. Or at least 0.00001% of it. He has a *little* speed. He's just not giving it to you."
+    },
+    {
+      "conversation_id": 1218,
+      "line_id": 46,
+      "speaker_id": 401,
+      "text": "...or lie. Something he's probably not very good at."
+    },
+    {
+      "conversation_id": 1218,
+      "line_id": 199,
+      "speaker_id": 401,
+      "text": "All the goofing around is to avoid lying. It's a technique."
+    },
+    {
+      "conversation_id": 1218,
+      "line_id": 265,
+      "speaker_id": 401,
+      "text": "Sire, it would be an event most dramatic if you were to produce the bullet and dangle it before their very eyes!"
+    },
+    {
+      "conversation_id": 1219,
+      "line_id": 174,
+      "speaker_id": 401,
+      "text": "He's doing a good job here. A commendable performance of *I don't give a shit*."
+    },
+    {
+      "conversation_id": 1219,
+      "line_id": 272,
+      "speaker_id": 401,
+      "text": "Everybody has something to hide. He *certainly* does."
+    },
+    {
+      "conversation_id": 1219,
+      "line_id": 313,
+      "speaker_id": 401,
+      "text": "Oh my god, The Art -- they're using it against you. This is all a twisted phantasie!"
+    },
+    {
+      "conversation_id": 1231,
+      "line_id": 7,
+      "speaker_id": 401,
+      "text": "Wait... there was no mention of a casserole from Joyce."
+    },
+    {
+      "conversation_id": 1249,
+      "line_id": 76,
+      "speaker_id": 401,
+      "text": "Something about the way she says it makes you want to sing."
+    },
+    {
+      "conversation_id": 1458,
+      "line_id": 85,
+      "speaker_id": 401,
+      "text": "This is not how one gives speeches, milord -- why antagonise the lieutenant? Try again."
+    },
+    {
+      "conversation_id": 1499,
+      "line_id": 50,
+      "speaker_id": 401,
+      "text": "No, thou art Garte."
+    }
+  ]
+}
