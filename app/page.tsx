@@ -1,65 +1,107 @@
+import VideoBackground from "@/components/VideoBackground";
+import ChatBox from "@/components/ChatBox";
 import Image from "next/image";
+
+// Panel width as CSS variable so portrait can reference it
+const PANEL_WIDTH = "480px";
+const PORTRAIT_W = 140;
+const PORTRAIT_H = 170;
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main
+      className="w-screen h-screen overflow-hidden relative"
+      style={
+        { "--panel-width": PANEL_WIDTH } as React.CSSProperties
+      }
+    >
+      {/* Full-screen background */}
+      <VideoBackground />
+
+      {/* ── Portrait frame — floats LEFT of dialog panel ── */}
+      {/* Positioned so its right edge overlaps the panel's left edge by ~10px */}
+      <div
+        className="fixed z-30"
+        style={{
+          right: `calc(${PANEL_WIDTH} - 10px)`,
+          top: "52px",
+          width: `${PORTRAIT_W}px`,
+          height: `${PORTRAIT_H}px`,
+        }}
+      >
+        {/* Outer grungy frame */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "#0a0814",
+            border: "1px solid #2a2040",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.8), inset 0 0 0 1px #0d0a18",
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        {/* The actual image */}
+        <div className="absolute inset-[3px] overflow-hidden">
+          <Image
+            src="/volition-portrait.png"
+            alt="Volition"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          {/* Inner vignette — dark edges to blend into frame */}
+          <div
+            className="absolute inset-0"
+            style={{
+              boxShadow:
+                "inset 0 0 18px 6px rgba(4, 2, 12, 0.75)",
+            }}
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* Bottom label strip */}
+        <div
+          className="absolute bottom-0 left-0 right-0 flex items-center justify-center"
+          style={{
+            height: "18px",
+            background: "rgba(6, 4, 14, 0.9)",
+            borderTop: "1px solid #1e1830",
+          }}
+        >
+          <span
+            className="text-[#3d3060] uppercase tracking-widest"
+            style={{ fontSize: "7px", letterSpacing: "0.3em" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Volition
+          </span>
         </div>
-      </main>
-    </div>
+      </div>
+
+      {/* ── Vertical DE-style nav tabs (right of portrait, left of panel) ── */}
+      <div
+        className="fixed z-20 flex flex-col items-center pointer-events-none"
+        style={{
+          right: `calc(${PANEL_WIDTH} + 2px)`,
+          top: "260px",
+          gap: "2px",
+        }}
+      >
+        {["HAUNT", "PLAYER", "TASK", "MAP"].map((tab) => (
+          <div
+            key={tab}
+            className="text-[#18142a]"
+            style={{
+              fontSize: "7px",
+              letterSpacing: "0.22em",
+              writingMode: "vertical-rl",
+              transform: "rotate(180deg)",
+              padding: "3px 1px",
+            }}
+          >
+            {tab}
+          </div>
+        ))}
+      </div>
+
+      {/* ── The dialog panel ── */}
+      <ChatBox />
+    </main>
   );
 }
