@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Crimson_Pro } from "next/font/google";
 import "./globals.css";
 
@@ -12,6 +12,13 @@ const crimsonPro = Crimson_Pro({
 export const metadata: Metadata = {
   title: "Skill Talker — Disco Elysium",
   description: "The voice that keeps you from dissolving.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

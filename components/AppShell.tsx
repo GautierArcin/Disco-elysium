@@ -3,11 +3,35 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import ChatBox from "@/components/ChatBox";
-import { SKILLS, DEFAULT_SKILL, GROUP_COLORS, GROUP_LABELS, GROUPS, type Skill } from "@/core/skills";
-import { PANEL_WIDTH, PORTRAIT_W, PORTRAIT_H } from "@/core/layout";
+import {
+  SKILLS,
+  DEFAULT_SKILL,
+  GROUP_COLORS,
+  GROUP_LABELS,
+  GROUPS,
+  type Skill,
+} from "@/core/skills";
+import {
+  PANEL_WIDTH,
+  PORTRAIT_W,
+  PORTRAIT_H,
+  SIDEBAR_W,
+  MOBILE_HEADER_H,
+} from "@/core/layout";
 import { ChatProvider } from "@/context/ChatContext";
 import { AudioProvider, useAudio } from "@/context/AudioContext";
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, [breakpoint]);
+  return isMobile;
+}
 
 export default function AppShell() {
   return (
@@ -26,15 +50,26 @@ function AppShellInner() {
   const [speakingSkillId, setSpeakingSkillId] = useState<string | null>(null);
   const [streamingSkillId, setStreamingSkillId] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
-  const { muted, toggleMute, provider, setProvider, elevenLabsAvailable } = useAudio();
+  const { muted, toggleMute, provider, setProvider, elevenLabsAvailable } =
+    useAudio();
 
-  const onSpeakingSkill = useCallback((id: string | null) => setSpeakingSkillId(id), []);
-  const onStreamingSkill = useCallback((id: string | null) => setStreamingSkillId(id), []);
+  const onSpeakingSkill = useCallback(
+    (id: string | null) => setSpeakingSkillId(id),
+    [],
+  );
+  const onStreamingSkill = useCallback(
+    (id: string | null) => setStreamingSkillId(id),
+    [],
+  );
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setDropdownOpen(false);
       }
     }
@@ -48,16 +83,65 @@ function AppShellInner() {
   }, []);
 
   // In multi mode: speaking (audio) > streaming (waiting) > "multi" fallback
-  const speakingSkill = multiMode && speakingSkillId
-    ? (SKILLS.find((s) => s.id === speakingSkillId) ?? null)
-    : null;
-  const streamingSkillObj = multiMode && streamingSkillId
-    ? (SKILLS.find((s) => s.id === streamingSkillId) ?? null)
-    : null;
-  const portraitSkill = multiMode ? (speakingSkill ?? streamingSkillObj) : activeSkill;
+  const speakingSkill =
+    multiMode && speakingSkillId
+      ? (SKILLS.find((s) => s.id === speakingSkillId) ?? null)
+      : null;
+  const streamingSkillObj =
+    multiMode && streamingSkillId
+      ? (SKILLS.find((s) => s.id === streamingSkillId) ?? null)
+      : null;
+  const portraitSkill = multiMode
+    ? (speakingSkill ?? streamingSkillObj)
+    : activeSkill;
   const color = portraitSkill
     ? GROUP_COLORS[portraitSkill.group]
     : GROUP_COLORS[activeSkill.group];
+
+  // Shared skill list — used by desktop dropdown and mobile sheet.
+  const skillList = (itemH: number, fontPx: number, labelPx: number) =>
+    GROUPS.map((group) => (
+      <div key={group}>
+        <div
+          className="px-3 uppercase"
+          style={{
+            fontSize: `${labelPx}px`,
+            letterSpacing: "0.25em",
+            color: `${GROUP_COLORS[group]}77`,
+            paddingTop: "10px",
+            paddingBottom: "5px",
+            borderTop: "1px solid #12101e",
+          }}
+        >
+          {GROUP_LABELS[group]}
+        </div>
+        {SKILLS.filter((s) => s.group === group).map((skill) => {
+          const gc = GROUP_COLORS[group];
+          const isActive = skill.id === activeSkill.id;
+          return (
+            <button
+              key={skill.id}
+              onClick={() => selectSkill(skill)}
+              className="w-full text-left px-3"
+              style={{
+                height: `${itemH}px`,
+                fontSize: `${fontPx}px`,
+                letterSpacing: "0.12em",
+                fontFamily: "inherit",
+                cursor: "pointer",
+                background: isActive ? `${gc}18` : "transparent",
+                color: isActive ? gc : `${gc}88`,
+                borderLeft: isActive
+                  ? `3px solid ${gc}`
+                  : "3px solid transparent",
+              }}
+            >
+              {skill.name.toUpperCase()}
+            </button>
+          );
+        })}
+      </div>
+    ));
 
   return (
     <>
@@ -87,220 +171,430 @@ function AppShellInner() {
         ))}
       </div>
 
-      {/* Portrait */}
-      <div
-        className="fixed z-30"
-        style={{
-          right: `calc(${PANEL_WIDTH} - 10px)`,
-          top: "52px",
-          width: `${PORTRAIT_W}px`,
-          height: `${PORTRAIT_H}px`,
-        }}
-      >
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "#0a0814",
-            border: `1px solid ${color}44`,
-            boxShadow: `0 4px 24px rgba(0,0,0,0.8), inset 0 0 0 1px #0d0a18`,
-          }}
+      {isMobile ? (
+        <MobileChrome
+          color={color}
+          portraitSkill={portraitSkill}
+          activeSkill={activeSkill}
+          multiMode={multiMode}
+          setMultiMode={setMultiMode}
+          muted={muted}
+          toggleMute={toggleMute}
+          provider={provider}
+          setProvider={setProvider}
+          elevenLabsAvailable={elevenLabsAvailable}
+          dropdownOpen={dropdownOpen}
+          setDropdownOpen={setDropdownOpen}
+          dropdownRef={dropdownRef}
+          skillList={skillList}
         />
-        <div className="absolute inset-[3px] overflow-hidden">
-          <Image
-              src={portraitSkill ? portraitSkill.image : "/skills/multi.jpeg"}
-              alt={portraitSkill ? portraitSkill.name : "Multi"}
-              fill
-              sizes={`${PORTRAIT_W}px`}
-              className="object-cover object-top"
-              priority
-            />
-          <div
-            className="absolute inset-0"
-            style={{ boxShadow: "inset 0 0 18px 6px rgba(4, 2, 12, 0.75)" }}
-          />
-        </div>
-        <div
-          className="absolute bottom-0 left-0 right-0 flex items-center justify-center"
+      ) : (
+        /* Desktop sidebar — unified column flush against the chat panel */
+        <aside
+          ref={dropdownRef}
+          className="fixed z-30 flex flex-col"
           style={{
-            height: "18px",
-            background: "rgba(6, 4, 14, 0.9)",
-            borderTop: `1px solid ${color}33`,
+            top: 0,
+            bottom: 0,
+            right: PANEL_WIDTH,
+            width: `${SIDEBAR_W}px`,
+            padding: "22px 22px 22px",
           }}
         >
-          <span
-            className="uppercase tracking-widest"
-            style={{ fontSize: "7px", letterSpacing: "0.3em", color: `${color}aa` }}
+          {/* Portrait */}
+          <div
+            className="relative w-full"
+            style={{ aspectRatio: `${PORTRAIT_W} / ${PORTRAIT_H}` }}
           >
-            {portraitSkill ? portraitSkill.name : multiMode ? "MULTI" : activeSkill.name}
-          </span>
-        </div>
-      </div>
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "#0a0814",
+                border: `1px solid ${color}44`,
+                boxShadow: `0 4px 24px rgba(0,0,0,0.8), inset 0 0 0 1px #0d0a18`,
+              }}
+            />
+            <div className="absolute inset-[3px] overflow-hidden">
+              <Image
+                src={portraitSkill ? portraitSkill.image : "/skills/multi.jpeg"}
+                alt={portraitSkill ? portraitSkill.name : "Multi"}
+                fill
+                sizes={`${SIDEBAR_W}px`}
+                className="object-cover object-top"
+                priority
+              />
+              <div
+                className="absolute inset-0"
+                style={{ boxShadow: "inset 0 0 18px 6px rgba(4, 2, 12, 0.75)" }}
+              />
+            </div>
+            <div
+              className="absolute bottom-0 left-0 right-0 flex items-center justify-center"
+              style={{
+                height: "26px",
+                background: "rgba(6, 4, 14, 0.9)",
+                borderTop: `1px solid ${color}33`,
+              }}
+            >
+              <span
+                className="uppercase tracking-widest truncate px-2"
+                style={{
+                  fontSize: "10px",
+                  letterSpacing: "0.28em",
+                  color: `${color}cc`,
+                }}
+              >
+                {portraitSkill
+                  ? portraitSkill.name
+                  : multiMode
+                    ? "MULTI"
+                    : activeSkill.name}
+              </span>
+            </div>
+          </div>
 
-      {/* Skill dropdown — below portrait */}
+          {/* Multi toggle */}
+          <button
+            onClick={() => {
+              setMultiMode((m) => !m);
+              setDropdownOpen(false);
+            }}
+            className="w-full flex items-center justify-center gap-2 flex-shrink-0"
+            style={{
+              height: "38px",
+              marginTop: "16px",
+              background: multiMode ? "#12092a" : "#0a0814",
+              border: `1px solid ${multiMode ? "#6040a066" : "#2e285066"}`,
+              color: multiMode ? "#a07ad8" : "#6a5f8a",
+              fontSize: "12px",
+              letterSpacing: "0.22em",
+              fontFamily: "inherit",
+              cursor: "pointer",
+            }}
+          >
+            <span style={{ fontSize: "15px" }}>{multiMode ? "▣" : "□"}</span>
+            <span className="uppercase">Multi</span>
+          </button>
+
+          {/* Skill dropdown — invisible when multi active (keeps layout) */}
+          <div className="relative flex-shrink-0" style={{ marginTop: "8px" }}>
+            <button
+              onClick={() => setDropdownOpen((o) => !o)}
+              className="w-full flex items-center justify-between px-3"
+              style={{
+                height: "44px",
+                background: "#0a0814",
+                border: `1px solid ${color}66`,
+                color: `${color}cc`,
+                fontSize: "12px",
+                letterSpacing: "0.2em",
+                fontFamily: "inherit",
+                cursor: "pointer",
+                visibility: multiMode ? "hidden" : "visible",
+              }}
+            >
+              <span className="uppercase truncate">{activeSkill.name}</span>
+              <span style={{ fontSize: "12px", opacity: 0.6 }}>
+                {dropdownOpen ? "▲" : "▼"}
+              </span>
+            </button>
+
+            {dropdownOpen && (
+              <div
+                className="absolute left-0 right-0 overflow-y-auto z-40"
+                style={{
+                  top: "45px",
+                  background: "#08060f",
+                  border: `1px solid #1e1830`,
+                  borderTop: "none",
+                  maxHeight: "min(460px, calc(100vh - 360px))",
+                  scrollbarWidth: "none",
+                }}
+              >
+                {skillList(38, 12, 11)}
+              </div>
+            )}
+          </div>
+
+          {/* Audio controls — pinned to bottom */}
+          <div className="w-full flex flex-col gap-[5px] mt-auto flex-shrink-0">
+            <button
+              onClick={toggleMute}
+              className="w-full flex items-center justify-center gap-2"
+              style={{
+                height: "38px",
+                background: !muted ? "#12092a" : "#0a0814",
+                border: `1px solid ${!muted ? "#6040a066" : "#2e285066"}`,
+                color: !muted ? "#a07ad8" : "#6a5f8a",
+                fontSize: "12px",
+                letterSpacing: "0.22em",
+                fontFamily: "inherit",
+                cursor: "pointer",
+              }}
+            >
+              <span style={{ fontSize: "15px" }}>{!muted ? "▣" : "□"}</span>
+              <span className="uppercase">Sound</span>
+            </button>
+
+            <div className="w-full flex gap-[5px]" style={{ height: "34px" }}>
+              {(["elevenlabs", "browser"] as const).map((p) => {
+                const isActive = provider === p;
+                const unavailable =
+                  p === "elevenlabs" && elevenLabsAvailable === false;
+                const label =
+                  p === "elevenlabs" ? "Narrator voice" : "Browser generated";
+                return (
+                  <button
+                    key={p}
+                    onClick={() => setProvider(p)}
+                    disabled={unavailable}
+                    className="flex-1 uppercase leading-tight"
+                    style={{
+                      background: isActive ? "#12092a" : "#0a0814",
+                      border: `1px solid ${isActive ? "#6040a066" : "#2e285066"}`,
+                      color: unavailable
+                        ? "#2a2438"
+                        : isActive
+                          ? "#a07ad8"
+                          : "#6a5f8a",
+                      fontSize: "10px",
+                      letterSpacing: "0.14em",
+                      fontFamily: "inherit",
+                      cursor: unavailable ? "not-allowed" : "pointer",
+                    }}
+                    title={
+                      unavailable
+                        ? "Not enough token for the API, dev is poor :("
+                        : ""
+                    }
+                  >
+                    {label}
+                    {unavailable ? " ✕" : ""}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {/* Chat panel */}
+      <ChatBox
+        skill={activeSkill}
+        multiMode={multiMode}
+        isMobile={isMobile}
+        onSpeakingSkill={onSpeakingSkill}
+        onStreamingSkill={onStreamingSkill}
+      />
+    </>
+  );
+}
+
+function MobileChrome({
+  color,
+  portraitSkill,
+  activeSkill,
+  multiMode,
+  setMultiMode,
+  muted,
+  toggleMute,
+  provider,
+  setProvider,
+  elevenLabsAvailable,
+  dropdownOpen,
+  setDropdownOpen,
+  dropdownRef,
+  skillList,
+}: {
+  color: string;
+  portraitSkill: Skill | null;
+  activeSkill: Skill;
+  multiMode: boolean;
+  setMultiMode: React.Dispatch<React.SetStateAction<boolean>>;
+  muted: boolean;
+  toggleMute: () => void;
+  provider: "elevenlabs" | "browser";
+  setProvider: (p: "elevenlabs" | "browser") => void;
+  elevenLabsAvailable: boolean | null;
+  dropdownOpen: boolean;
+  setDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  dropdownRef: React.RefObject<HTMLDivElement | null>;
+  skillList: (
+    itemH: number,
+    fontPx: number,
+    labelPx: number,
+  ) => React.ReactNode;
+}) {
+  const portraitName = portraitSkill
+    ? portraitSkill.name
+    : multiMode
+      ? "MULTI"
+      : activeSkill.name;
+  const thumbSrc = portraitSkill ? portraitSkill.image : "/skills/multi.jpeg";
+
+  return (
+    <div
+      ref={dropdownRef}
+      className="fixed top-0 left-0 right-0 z-40"
+      style={{ height: `${MOBILE_HEADER_H}px` }}
+    >
+      {/* Top bar */}
       <div
-        ref={dropdownRef}
-        className="fixed z-30"
+        className="flex items-center gap-3 px-3 h-full"
         style={{
-          right: `calc(${PANEL_WIDTH} - 10px)`,
-          top: `${52 + PORTRAIT_H + 6}px`,
-          width: `${PORTRAIT_W}px`,
+          background: "rgba(8, 6, 14, 0.96)",
+          borderBottom: `1px solid ${color}33`,
         }}
       >
+        {/* Portrait thumbnail */}
+        <div
+          className="relative flex-shrink-0 overflow-hidden"
+          style={{
+            width: "44px",
+            height: "54px",
+            border: `1px solid ${color}55`,
+          }}
+        >
+          <Image
+            src={thumbSrc}
+            alt={portraitName}
+            fill
+            sizes="44px"
+            className="object-cover object-top"
+            priority
+          />
+        </div>
+
+        <span
+          className="uppercase truncate flex-1 min-w-0"
+          style={{
+            fontSize: "13px",
+            letterSpacing: "0.06em",
+            color: `${color}cc`,
+          }}
+        >
+          {portraitName}
+        </span>
+
         {/* Multi toggle */}
         <button
-          onClick={() => { setMultiMode((m) => !m); setDropdownOpen(false); }}
-          className="w-full flex items-center justify-center gap-1"
+          onClick={() => {
+            setMultiMode((m) => !m);
+            setDropdownOpen(false);
+          }}
+          className="flex items-center justify-center gap-1 px-3"
           style={{
-            height: "20px",
+            height: "44px",
             background: multiMode ? "#12092a" : "#0a0814",
-            border: `1px solid ${multiMode ? "#6040a044" : "#2e285066"}`,
-            color: multiMode ? "#8060c0" : "#5a4f7a",
-            fontSize: "7px",
-            letterSpacing: "0.22em",
+            border: `1px solid ${multiMode ? "#6040a066" : "#2e285066"}`,
+            color: multiMode ? "#8060c0" : "#7a6f9a",
+            fontSize: "11px",
+            letterSpacing: "0.12em",
             fontFamily: "inherit",
             cursor: "pointer",
           }}
         >
-          <span style={{ fontSize: "9px" }}>{multiMode ? "▣" : "□"}</span>
+          <span style={{ fontSize: "13px" }}>{multiMode ? "▣" : "□"}</span>
           <span className="uppercase">Multi</span>
         </button>
 
-        {/* Skill dropdown — invisible when multi active (keeps multi toggle position) */}
-        <button
-          onClick={() => setDropdownOpen((o) => !o)}
-          className="w-full flex items-center justify-between px-2"
-          style={{
-            height: "22px",
-            marginTop: "3px",
-            background: "#0a0814",
-            border: `1px solid ${color}66`,
-            color: `${color}aa`,
-            fontSize: "7px",
-            letterSpacing: "0.2em",
-            fontFamily: "inherit",
-            cursor: "pointer",
-            visibility: multiMode ? "hidden" : "visible",
-          }}
-        >
-          <span className="uppercase truncate">{activeSkill.name}</span>
-          <span style={{ fontSize: "8px", opacity: 0.6 }}>{dropdownOpen ? "▲" : "▼"}</span>
-        </button>
-
-        {dropdownOpen && (
-          <div
-            className="absolute left-0 right-0 overflow-y-auto"
-            style={{
-              top: "23px",
-              background: "#08060f",
-              border: `1px solid #1e1830`,
-              borderTop: "none",
-              maxHeight: "320px",
-              scrollbarWidth: "none",
-            }}
-          >
-            {GROUPS.map((group) => (
-              <div key={group}>
-                <div
-                  className="px-2 uppercase"
-                  style={{
-                    fontSize: "9px",
-                    letterSpacing: "0.25em",
-                    color: `${GROUP_COLORS[group]}77`,
-                    paddingTop: "8px",
-                    paddingBottom: "4px",
-                    borderTop: "1px solid #12101e",
-                  }}
-                >
-                  {GROUP_LABELS[group]}
-                </div>
-                {SKILLS.filter((s) => s.group === group).map((skill) => {
-                  const gc = GROUP_COLORS[group];
-                  const isActive = skill.id === activeSkill.id;
-                  return (
-                    <button
-                      key={skill.id}
-                      onClick={() => selectSkill(skill)}
-                      className="w-full text-left px-2"
-                      style={{
-                        height: "22px",
-                        fontSize: "8px",
-                        letterSpacing: "0.12em",
-                        fontFamily: "inherit",
-                        cursor: "pointer",
-                        background: isActive ? `${gc}18` : "transparent",
-                        color: isActive ? gc : `${gc}88`,
-                        borderLeft: isActive ? `2px solid ${gc}` : "2px solid transparent",
-                      }}
-                    >
-                      {skill.name.toUpperCase()}
-                    </button>
-                  );
-                })}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Audio controls — mute + TTS provider toggle */}
-      <div
-        className="fixed z-30 flex flex-col gap-[3px]"
-        style={{
-          right: `calc(${PANEL_WIDTH} - 10px)`,
-          bottom: "16px",
-          width: `${PORTRAIT_W}px`,
-        }}
-      >
+        {/* Sound toggle */}
         <button
           onClick={toggleMute}
-          className="w-full flex items-center justify-center gap-1"
+          className="flex items-center justify-center px-3"
           style={{
-            height: "20px",
+            height: "44px",
+            minWidth: "44px",
             background: !muted ? "#12092a" : "#0a0814",
-            border: `1px solid ${!muted ? "#6040a044" : "#2e285066"}`,
+            border: `1px solid ${!muted ? "#6040a066" : "#2e285066"}`,
             color: !muted ? "#8060c0" : "#5a4f7a",
-            fontSize: "7px",
-            letterSpacing: "0.22em",
+            fontSize: "18px",
+            fontFamily: "inherit",
+            cursor: "pointer",
+          }}
+          aria-label={muted ? "Unmute" : "Mute"}
+        >
+          {muted ? "♪̸" : "♪"}
+        </button>
+
+        {/* Skills menu toggle */}
+        <button
+          onClick={() => setDropdownOpen((o) => !o)}
+          className="flex items-center justify-center gap-1 px-3"
+          style={{
+            height: "44px",
+            background: "#0a0814",
+            border: `1px solid ${color}66`,
+            color: `${color}cc`,
+            fontSize: "11px",
+            letterSpacing: "0.12em",
             fontFamily: "inherit",
             cursor: "pointer",
           }}
         >
-          <span style={{ fontSize: "9px" }}>{!muted ? "▣" : "□"}</span>
-          <span className="uppercase">Sound</span>
+          <span className="uppercase">Skills</span>
+          <span style={{ fontSize: "10px", opacity: 0.7 }}>
+            {dropdownOpen ? "▲" : "▼"}
+          </span>
         </button>
-
-        <div className="w-full flex" style={{ height: "18px" }}>
-          {(["elevenlabs", "browser"] as const).map((p) => {
-            const isActive = provider === p;
-            const unavailable = p === "elevenlabs" && elevenLabsAvailable === false;
-            const label = p === "elevenlabs" ? "Narrator voice" : "Browser generated";
-            return (
-              <button
-                key={p}
-                onClick={() => setProvider(p)}
-                disabled={unavailable}
-                className="flex-1 uppercase"
-                style={{
-                  background: isActive ? "#12092a" : "#0a0814",
-                  border: `1px solid ${isActive ? "#6040a044" : "#2e285066"}`,
-                  color: unavailable ? "#2a2438" : isActive ? "#8060c0" : "#5a4f7a",
-                  fontSize: "6px",
-                  letterSpacing: "0.16em",
-                  fontFamily: "inherit",
-                  cursor: unavailable ? "not-allowed" : "pointer",
-                }}
-                title={unavailable ? "Not enough token for the API, dev is poor :(" : ""}
-              >
-                {label}
-                {unavailable ? " ✕" : ""}
-              </button>
-            );
-          })}
-        </div>
       </div>
 
-      {/* Chat panel */}
-      <ChatBox skill={activeSkill} multiMode={multiMode} onSpeakingSkill={onSpeakingSkill} onStreamingSkill={onStreamingSkill} />
-    </>
+      {/* Slide-down sheet: skill list + provider toggle */}
+      {dropdownOpen && (
+        <div
+          className="overflow-y-auto"
+          style={{
+            background: "rgba(6, 4, 12, 0.98)",
+            borderBottom: "1px solid #1e1830",
+            maxHeight: `calc(100dvh - ${MOBILE_HEADER_H}px)`,
+            scrollbarWidth: "none",
+          }}
+        >
+          {/* Provider toggle */}
+          <div
+            className="flex gap-[4px] px-3 pt-3 pb-1"
+            style={{ height: "52px" }}
+          >
+            {(["elevenlabs", "browser"] as const).map((p) => {
+              const isActive = provider === p;
+              const unavailable =
+                p === "elevenlabs" && elevenLabsAvailable === false;
+              const label =
+                p === "elevenlabs" ? "Narrator voice" : "Browser generated";
+              return (
+                <button
+                  key={p}
+                  onClick={() => setProvider(p)}
+                  disabled={unavailable}
+                  className="flex-1 uppercase"
+                  style={{
+                    background: isActive ? "#12092a" : "#0a0814",
+                    border: `1px solid ${isActive ? "#6040a066" : "#2e285066"}`,
+                    color: unavailable
+                      ? "#2a2438"
+                      : isActive
+                        ? "#8060c0"
+                        : "#7a6f9a",
+                    fontSize: "11px",
+                    letterSpacing: "0.12em",
+                    fontFamily: "inherit",
+                    cursor: unavailable ? "not-allowed" : "pointer",
+                  }}
+                  title={
+                    unavailable
+                      ? "Not enough token for the API, dev is poor :("
+                      : ""
+                  }
+                >
+                  {label}
+                  {unavailable ? " ✕" : ""}
+                </button>
+              );
+            })}
+          </div>
+          {skillList(46, 13, 12)}
+        </div>
+      )}
+    </div>
   );
 }

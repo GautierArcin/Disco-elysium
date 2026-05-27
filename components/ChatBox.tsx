@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import { type Skill, GROUP_COLORS, pickMultiSkills } from "@/core/skills";
 import { useAudio, type TTSHandle } from "@/context/AudioContext";
+import { MOBILE_HEADER_H } from "@/core/layout";
 
 interface Message {
   role: "user" | "assistant";
@@ -113,11 +114,13 @@ function buildMultiUserMsg(
 export default function ChatBox({
   skill,
   multiMode,
+  isMobile = false,
   onSpeakingSkill,
   onStreamingSkill,
 }: {
   skill: Skill;
   multiMode: boolean;
+  isMobile?: boolean;
   onSpeakingSkill?: (skillId: string | null) => void;
   onStreamingSkill?: (skillId: string | null) => void;
 }) {
@@ -362,17 +365,23 @@ export default function ChatBox({
 
   return (
     <div
-      className="fixed right-0 top-0 h-screen flex flex-col"
+      className="fixed right-0 flex flex-col"
       style={{
         zIndex: 10,
-        width: "var(--panel-width)",
+        top: isMobile ? `${MOBILE_HEADER_H}px` : 0,
+        height: isMobile ? `calc(100dvh - ${MOBILE_HEADER_H}px)` : "100dvh",
+        width: isMobile ? "100%" : "var(--panel-width)",
+        left: isMobile ? 0 : undefined,
         background: "rgba(10, 8, 18, 0.80)",
         backdropFilter: "blur(0px)",
-        borderLeft: "4px solid #2a2245",
-        boxShadow: "-1px 0 0 #18122e",
+        borderLeft: isMobile ? "none" : "4px solid #2a2245",
+        boxShadow: isMobile ? "none" : "-1px 0 0 #18122e",
       }}
     >
-      <div className="chat-scroll flex-1 overflow-y-auto px-6 pt-5 pb-2">
+      <div
+        className="chat-scroll flex-1 overflow-y-auto pt-5 pb-2"
+        style={{ paddingLeft: isMobile ? "18px" : "24px", paddingRight: isMobile ? "18px" : "24px" }}
+      >
         {messages.length === 0 && !streamingSkill && (
           <p
             className="text-[#2e2848] leading-relaxed mt-4"
@@ -470,10 +479,13 @@ export default function ChatBox({
         <div ref={bottomRef} />
       </div>
 
-      <div className="mx-6" style={{ height: "1px", background: "#1c1628" }} />
+      <div style={{ marginInline: isMobile ? "18px" : "24px", height: "1px", background: "#1c1628" }} />
 
-      <div className="flex-shrink-0 px-6 py-4">
-        <div className="flex items-start gap-0 leading-snug">
+      <div
+        className="flex-shrink-0 py-4"
+        style={{ paddingLeft: isMobile ? "18px" : "24px", paddingRight: isMobile ? "18px" : "24px" }}
+      >
+        <div className="flex items-start gap-3 leading-snug">
           <span
             className="text-[#c87c40] flex-shrink-0"
             style={{
@@ -484,7 +496,7 @@ export default function ChatBox({
           >
             {userMsgCount + 1}. -{" "}
           </span>
-          <div className="flex-1 relative ml-1">
+          <div className="flex-1 relative">
             <span
               aria-hidden
               className="absolute top-0 left-0 pointer-events-none select-none"
@@ -514,12 +526,35 @@ export default function ChatBox({
               }}
             />
           </div>
+          <button
+            onClick={sendMessage}
+            disabled={busy || !input.trim()}
+            className="flex-shrink-0 uppercase"
+            style={{
+              height: isMobile ? "48px" : "42px",
+              paddingInline: isMobile ? "22px" : "18px",
+              background: busy || !input.trim() ? "#0a0814" : "#12092a",
+              border: `1px solid ${busy || !input.trim() ? "#2e285055" : "#6040a077"}`,
+              color: busy || !input.trim() ? "#4a3870" : "#a07ad8",
+              fontSize: "13px",
+              letterSpacing: "0.18em",
+              fontFamily: "inherit",
+              cursor: busy || !input.trim() ? "default" : "pointer",
+              transition: "color 0.3s, border-color 0.3s, background 0.3s",
+            }}
+          >
+            {busy ? "…" : "Send"}
+          </button>
         </div>
         <p
           className="mt-2 uppercase"
           style={{ fontSize: "9px", letterSpacing: "0.22em", color: "#4a3870" }}
         >
-          Enter · send &nbsp;|&nbsp; Shift+Enter · newline
+          {isMobile ? (
+            <>Tap Send to speak</>
+          ) : (
+            <>Enter · send &nbsp;|&nbsp; Shift+Enter · newline</>
+          )}
           {multiMode && <span> &nbsp;|&nbsp; MULTI ACTIVE</span>}
         </p>
       </div>
