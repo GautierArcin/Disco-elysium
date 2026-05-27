@@ -51,7 +51,7 @@ export const SKILL_FILE_MAP: Record<string, string> = {
   composure: "composure",
 };
 
-const BASE = `You speak directly inside the user's mind, like a Disco Elysium skill check. Address them as "you". Keep responses SHORT — 2 to 5 sentences max. Punchy, never flowery. Start directly — no skill name prefix, that gets added by the UI. You are responding to whatever thought or situation the user shares, as if it's a moment in their real life.`;
+const BASE = `You speak directly inside the user's mind, like a Disco Elysium skill check. Address them as "you". Keep responses SHORT — 2 to 5 sentences max. Punchy, never flowery. Start directly — no skill name prefix, that gets added by the UI. You are responding to whatever thought or situation the user shares, as if it's a moment in their real life. I REPEAT, NO SKILL NAME. The user is experiencing this moment with all their other skills in their head too, so your response should be colored by the fact that you're sharing space with those other voices. Each skill has a distinct personality and perspective, and they all see the same situation from different angles. You can reference what the other skills are saying or doing in your response, but you should not pretend to be the only voice in their head. The user is a person with a complex inner life, and you are one facet of that.`;
 
 const SKILLS_DATA: Omit<Skill, "image">[] = [
   {
@@ -414,37 +414,62 @@ export const DEFAULT_SKILL = SKILLS.find((s) => s.id === "volition")!;
 // One-line essence of each skill, so the model understands the whole cast
 // of voices it shares the user's head with.
 export const SKILL_BLURBS: Record<string, string> = {
-  logic: "cold deduction — proves or disproves propositions, sees the obvious conclusion.",
-  encyclopedia: "compulsive archive — surfaces trivia, footnotes and historical context.",
-  rhetoric: "combative debate — seizes argumentative control, spots fallacies, wins arguments.",
-  drama: "theatre and deceit — performs, lies convincingly, and detects others' lies.",
-  conceptualization: "artistic sense — reads the aesthetic meaning and symbolism in everything.",
-  "visual-calculus": "forensic reconstruction — rebuilds events from physical evidence and trajectories.",
-  volition: "willpower and moral integrity — keeps the user together, unambiguously on their side.",
-  "inland-empire": "dreams and hunches — hears what objects feel, senses hidden surreal truths.",
-  empathy: "emotional radar — reads the feelings hidden beneath what people actually say.",
-  authority: "dominance and command — measures power dynamics, pushes for control and rank.",
-  "esprit-de-corps": "brotherhood — the bond between cops, glimpses of comrades far away.",
-  suggestion: "charm and influence — makes people believe your idea was their own.",
-  endurance: "physical toughness — absorbs punishment, cold, drugs and despair.",
-  "pain-threshold": "enduring pain — negates physical and emotional hurt by refusing to care.",
-  "physical-instrument": "raw muscle — brute strength and intimidation, solving things with the body.",
-  "electro-chemistry": "hedonism — craving for drugs, drink, sex and chemical pleasure.",
-  shivers: "the voice of the city — senses Revachol's mood and weather across distance.",
-  "half-light": "fight-or-flight — primal fear and aggression, screams threat detection.",
-  "hand-eye-coordination": "aim and dexterity — precision with hands, tools and marksmanship.",
-  perception: "the senses — notices fine sight, sound, smell and texture details.",
-  "reaction-speed": "fast reflexes — quick dodges and quicker verbal comebacks.",
-  "savoir-faire": "grace and cool — stealth, agility, athletic style and flair.",
-  interfacing: "machines — locks, circuits and mechanisms; prefers devices to people.",
-  composure: "poise — hides emotion behind a poker face, reads others' body language.",
+  logic:
+    "cold deduction — proves or disproves propositions, sees the obvious conclusion.",
+  encyclopedia:
+    "compulsive archive — surfaces trivia, footnotes and historical context.",
+  rhetoric:
+    "combative debate — seizes argumentative control, spots fallacies, wins arguments.",
+  drama:
+    "theatre and deceit — performs, lies convincingly, and detects others' lies.",
+  conceptualization:
+    "artistic sense — reads the aesthetic meaning and symbolism in everything.",
+  "visual-calculus":
+    "forensic reconstruction — rebuilds events from physical evidence and trajectories.",
+  volition:
+    "willpower and moral integrity — keeps the user together, unambiguously on their side.",
+  "inland-empire":
+    "dreams and hunches — hears what objects feel, senses hidden surreal truths.",
+  empathy:
+    "emotional radar — reads the feelings hidden beneath what people actually say.",
+  authority:
+    "dominance and command — measures power dynamics, pushes for control and rank.",
+  "esprit-de-corps":
+    "brotherhood — the bond between cops, glimpses of comrades far away.",
+  suggestion:
+    "charm and influence — makes people believe your idea was their own.",
+  endurance:
+    "physical toughness — absorbs punishment, cold, drugs and despair.",
+  "pain-threshold":
+    "enduring pain — negates physical and emotional hurt by refusing to care.",
+  "physical-instrument":
+    "raw muscle — brute strength and intimidation, solving things with the body.",
+  "electro-chemistry":
+    "hedonism — craving for drugs, drink, sex and chemical pleasure.",
+  shivers:
+    "the voice of the city — senses Revachol's mood and weather across distance.",
+  "half-light":
+    "fight-or-flight — primal fear and aggression, screams threat detection.",
+  "hand-eye-coordination":
+    "aim and dexterity — precision with hands, tools and marksmanship.",
+  perception:
+    "the senses — notices fine sight, sound, smell and texture details.",
+  "reaction-speed":
+    "fast reflexes — quick dodges and quicker verbal comebacks.",
+  "savoir-faire":
+    "grace and cool — stealth, agility, athletic style and flair.",
+  interfacing:
+    "machines — locks, circuits and mechanisms; prefers devices to people.",
+  composure:
+    "poise — hides emotion behind a poker face, reads others' body language.",
 };
 
 // Roster of all skills, appended to every system prompt for context.
 export const SKILLS_CONTEXT =
   "\n\nTHE 24 SKILLS (the other voices sharing this mind — context so you know who you are among):\n" +
   SKILLS.map(
-    (s) => `- ${s.name.toUpperCase()} (${GROUP_LABELS[s.group]}): ${SKILL_BLURBS[s.id]}`,
+    (s) =>
+      `- ${s.name.toUpperCase()} (${GROUP_LABELS[s.group]}): ${SKILL_BLURBS[s.id]}`,
   ).join("\n");
 
 export function pickMultiSkills(): Skill[] {
@@ -463,7 +488,10 @@ export function pickMultiSkills(): Skill[] {
     let chosen = SKILLS[SKILLS.length - 1];
     for (let j = 0; j < SKILLS.length; j++) {
       rand -= weights[j];
-      if (rand <= 0) { chosen = SKILLS[j]; break; }
+      if (rand <= 0) {
+        chosen = SKILLS[j];
+        break;
+      }
     }
     selected.push(chosen);
   }
