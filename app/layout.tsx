@@ -10,7 +10,7 @@ const crimsonPro = Crimson_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "VOLITION — Disco Elysium",
+  title: "Skill Talker — Disco Elysium",
   description: "The voice that keeps you from dissolving.",
 };
 
