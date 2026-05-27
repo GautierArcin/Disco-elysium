@@ -283,8 +283,6 @@ export default function ChatBox({
         while (!doneFlags[i]) await new Promise((r) => setTimeout(r, 20));
         setStreamingText(collectedTexts[i]);
 
-        const tts = await audioPromises[i];
-
         // Reveal message, hide cursor
         displayBuffer.push({
           role: "assistant",
@@ -297,16 +295,18 @@ export default function ChatBox({
         setStreamingSkill(null);
         onStreamingSkill?.(null);
 
-        if (tts) {
-          onSpeakingSkill?.(s.id); // portrait → this skill
-          setAudioPlaying(true);
-          if (!muted) {
-            playGroupSound(s.group);
-            await new Promise((r) => setTimeout(r, 1000));
-          }
-          await tts.play();
-          setAudioPlaying(false);
+        // Skill sound fires WITH the message — TTS prep overlaps the chime window
+        onSpeakingSkill?.(s.id); // portrait → this skill
+        setAudioPlaying(true);
+        if (!muted) {
+          playGroupSound(s.group);
+          await new Promise((r) => setTimeout(r, 1000));
         }
+        const tts = await audioPromises[i];
+        if (tts) {
+          await tts.play();
+        }
+        setAudioPlaying(false);
       }
 
       try {

@@ -27,7 +27,7 @@ function AppShellInner() {
   const [streamingSkillId, setStreamingSkillId] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const { muted, toggleMute, provider, setProvider, isLocalhost, elevenLabsAvailable } = useAudio();
+  const { muted, toggleMute, provider, setProvider, elevenLabsAvailable } = useAudio();
 
   const onSpeakingSkill = useCallback((id: string | null) => setSpeakingSkillId(id), []);
   const onStreamingSkill = useCallback((id: string | null) => setStreamingSkillId(id), []);
@@ -61,6 +61,32 @@ function AppShellInner() {
 
   return (
     <>
+      {/* Preload all portraits — offscreen-but-rendered so next/image fetches
+          the same optimized URLs the portrait uses, warming the browser cache. */}
+      <div
+        aria-hidden
+        className="fixed pointer-events-none"
+        style={{
+          top: 0,
+          left: 0,
+          width: `${PORTRAIT_W}px`,
+          height: `${PORTRAIT_H}px`,
+          opacity: 0,
+          zIndex: -1,
+        }}
+      >
+        {[...SKILLS.map((s) => s.image), "/skills/multi.jpeg"].map((src) => (
+          <Image
+            key={src}
+            src={src}
+            alt=""
+            fill
+            sizes={`${PORTRAIT_W}px`}
+            className="object-cover object-top"
+          />
+        ))}
+      </div>
+
       {/* Portrait */}
       <div
         className="fixed z-30"
@@ -84,6 +110,7 @@ function AppShellInner() {
               src={portraitSkill ? portraitSkill.image : "/skills/multi.jpeg"}
               alt={portraitSkill ? portraitSkill.name : "Multi"}
               fill
+              sizes={`${PORTRAIT_W}px`}
               className="object-cover object-top"
               priority
             />
@@ -215,7 +242,7 @@ function AppShellInner() {
         )}
       </div>
 
-      {/* Audio controls — mute + (localhost) TTS provider toggle */}
+      {/* Audio controls — mute + TTS provider toggle */}
       <div
         className="fixed z-30 flex flex-col gap-[3px]"
         style={{
@@ -242,35 +269,34 @@ function AppShellInner() {
           <span className="uppercase">Sound</span>
         </button>
 
-        {isLocalhost && (
-          <div className="w-full flex" style={{ height: "18px" }}>
-            {(["elevenlabs", "browser"] as const).map((p) => {
-              const isActive = provider === p;
-              const unavailable = p === "elevenlabs" && elevenLabsAvailable === false;
-              return (
-                <button
-                  key={p}
-                  onClick={() => setProvider(p)}
-                  disabled={unavailable}
-                  className="flex-1 uppercase"
-                  style={{
-                    background: isActive ? "#12092a" : "#0a0814",
-                    border: `1px solid ${isActive ? "#6040a044" : "#2e285066"}`,
-                    color: unavailable ? "#2a2438" : isActive ? "#8060c0" : "#5a4f7a",
-                    fontSize: "6px",
-                    letterSpacing: "0.16em",
-                    fontFamily: "inherit",
-                    cursor: unavailable ? "not-allowed" : "pointer",
-                  }}
-                  title={unavailable ? "ElevenLabs unavailable" : ""}
-                >
-                  {p === "elevenlabs" ? "11Labs" : "Browser"}
-                  {unavailable ? " ✕" : ""}
-                </button>
-              );
-            })}
-          </div>
-        )}
+        <div className="w-full flex" style={{ height: "18px" }}>
+          {(["elevenlabs", "browser"] as const).map((p) => {
+            const isActive = provider === p;
+            const unavailable = p === "elevenlabs" && elevenLabsAvailable === false;
+            const label = p === "elevenlabs" ? "Narrator voice" : "Browser generated";
+            return (
+              <button
+                key={p}
+                onClick={() => setProvider(p)}
+                disabled={unavailable}
+                className="flex-1 uppercase"
+                style={{
+                  background: isActive ? "#12092a" : "#0a0814",
+                  border: `1px solid ${isActive ? "#6040a044" : "#2e285066"}`,
+                  color: unavailable ? "#2a2438" : isActive ? "#8060c0" : "#5a4f7a",
+                  fontSize: "6px",
+                  letterSpacing: "0.16em",
+                  fontFamily: "inherit",
+                  cursor: unavailable ? "not-allowed" : "pointer",
+                }}
+                title={unavailable ? "Not enough token for the API, dev is poor :(" : ""}
+              >
+                {label}
+                {unavailable ? " ✕" : ""}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Chat panel */}
