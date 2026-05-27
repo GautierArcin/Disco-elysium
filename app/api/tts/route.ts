@@ -1,5 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Health check — verifies the ElevenLabs key works without spending TTS credits.
+export async function GET() {
+  const apiKey = process.env.ELEVENLABS_API_KEY;
+  const voiceId = process.env.ELEVENLABS_VOICE_ID;
+  if (!apiKey || !voiceId) {
+    return NextResponse.json({ ok: false, reason: "not configured" });
+  }
+  try {
+    // Query the configured voice — uses the same scope the TTS POST needs.
+    // (/v1/user requires user_read, which scoped TTS keys often lack.)
+    const res = await fetch(
+      `https://api.elevenlabs.io/v1/voices/${voiceId}`,
+      { headers: { "xi-api-key": apiKey } },
+    );
+    if (res.ok) return NextResponse.json({ ok: true });
+    const body = await res.text().catch(() => "");
+    return NextResponse.json({ ok: false, reason: `HTTP ${res.status}`, body });
+  } catch {
+    return NextResponse.json({ ok: false, reason: "unreachable" });
+  }
+}
+
 export async function POST(req: NextRequest) {
   const { text } = await req.json();
 

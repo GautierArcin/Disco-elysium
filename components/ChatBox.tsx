@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import { type Skill, GROUP_COLORS, pickMultiSkills } from "@/core/skills";
+import { useAudio, type TTSHandle } from "@/context/AudioContext";
 
 interface Message {
   role: "user" | "assistant";
@@ -10,7 +11,28 @@ interface Message {
   speakerGroup?: string;
 }
 
-type SkillTurn = { user: string; assistant: string };
+async function withRetry<T>(
+  fn: () => Promise<T>,
+  maxAttempts = 3,
+  delayMs = 600,
+): Promise<T> {
+  let lastErr: unknown;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      lastErr = err;
+      if (attempt < maxAttempts) {
+        console.warn(
+          `[retry] attempt ${attempt}/${maxAttempts} failed, retrying in ${delayMs}ms…`,
+          err,
+        );
+        await new Promise((r) => setTimeout(r, delayMs * attempt));
+      }
+    }
+  }
+  throw lastErr;
+}
 
 function playGroupSound(group: string) {
   const audio = new Audio(`/audio/${group}.wav`);
@@ -18,46 +40,21 @@ function playGroupSound(group: string) {
   audio.play().catch(() => {});
 }
 
-async function fetchTTSAudio(text: string): Promise<HTMLAudioElement | null> {
-  try {
-    const res = await fetch("/api/tts", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text }),
-    });
-    if (!res.ok) return null;
-    const blob = await res.blob();
-    return new Audio(URL.createObjectURL(blob));
-  } catch {
-    return null;
-  }
-}
-
-async function playAudioElement(audio: HTMLAudioElement): Promise<void> {
-  return new Promise((resolve) => {
-    audio.onended = () => {
-      URL.revokeObjectURL(audio.src);
-      resolve();
-    };
-    audio.onerror = () => {
-      URL.revokeObjectURL(audio.src);
-      resolve();
-    };
-    audio.play().catch(resolve);
-  });
-}
-
 async function streamSkillResponse(
   apiMessages: { role: string; content: string }[],
   skillId: string,
   onChunk: (full: string) => void,
 ): Promise<string> {
-  const res = await fetch("/api/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages: apiMessages, skillId }),
-  });
-  if (!res.ok) throw new Error("API error");
+  const res = await withRetry(() =>
+    fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: apiMessages, skillId }),
+    }).then((r) => {
+      if (!r.ok) throw new Error(`Chat HTTP ${r.status}`);
+      return r;
+    }),
+  );
 
   const reader = res.body!.getReader();
   const decoder = new TextDecoder();
@@ -84,6 +81,24 @@ async function streamSkillResponse(
   return full;
 }
 
+// Collapse consecutive assistant messages — Gemini requires alternating user/model
+function toApiHistory(msgs: Message[]): { role: string; content: string }[] {
+  const result: { role: string; content: string }[] = [];
+  for (const msg of msgs) {
+    const line =
+      msg.role === "assistant" && msg.speakerName
+        ? `${msg.speakerName.toUpperCase()}: ${msg.content}`
+        : msg.content;
+    const last = result[result.length - 1];
+    if (msg.role === "assistant" && last?.role === "assistant") {
+      last.content += "\n" + line;
+    } else {
+      result.push({ role: msg.role, content: line });
+    }
+  }
+  return result;
+}
+
 function buildMultiUserMsg(
   userText: string,
   prevResponses: Array<{ name: string; content: string }>,
@@ -98,35 +113,35 @@ function buildMultiUserMsg(
 export default function ChatBox({
   skill,
   multiMode,
+  onSpeakingSkill,
+  onStreamingSkill,
 }: {
   skill: Skill;
   multiMode: boolean;
+  onSpeakingSkill?: (skillId: string | null) => void;
+  onStreamingSkill?: (skillId: string | null) => void;
 }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
-  const [busy, setBusy] = useState(false); // streaming or playing
+  const [busy, setBusy] = useState(false);
   const [streamingText, setStreamingText] = useState("");
   const [streamingSkill, setStreamingSkill] = useState<{
     name: string;
     group: string;
   } | null>(null);
-  const skillHistoriesRef = useRef<Record<string, SkillTurn[]>>({});
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  // Placeholder appear-animation: mount bright (0.8) then settle (0.4) so the
+  // color transition fires when input is cleared.
+  const [phBright, setPhBright] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
-  const prevSkillId = useRef(skill.id);
-  const prevMultiMode = useRef(multiMode);
+  const { prepareTTS, muted } = useAudio();
 
-  useEffect(() => {
-    if (
-      prevSkillId.current !== skill.id ||
-      prevMultiMode.current !== multiMode
-    ) {
-      setMessages([]);
-      setStreamingText("");
-      setStreamingSkill(null);
-      prevSkillId.current = skill.id;
-      prevMultiMode.current = multiMode;
-    }
-  }, [skill.id, multiMode]);
+  useLayoutEffect(() => {
+    if (input) return;
+    setPhBright(true);
+    const id = requestAnimationFrame(() => setPhBright(false));
+    return () => cancelAnimationFrame(id);
+  }, [input]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -143,22 +158,17 @@ export default function ChatBox({
       setStreamingText("");
 
       try {
-        const apiMessages = newMessages.map((m) => ({
-          role: m.role,
-          content: m.content,
-        }));
-
-        // 1. Stream → cursor shows text
+        const apiMessages = toApiHistory(newMessages);
         const full = await streamSkillResponse(
           apiMessages,
           skill.id,
           setStreamingText,
         );
 
-        // 2. Fetch TTS — cursor stays visible with full text + blink
-        const audio = await fetchTTSAudio(full);
+        // Prepare TTS while cursor stays visible
+        const tts = await prepareTTS(full);
 
-        // 3. TTS received → reveal message, hide cursor
+        // TTS received → reveal message, hide cursor
         setMessages([
           ...newMessages,
           {
@@ -171,11 +181,14 @@ export default function ChatBox({
         setStreamingText("");
         setStreamingSkill(null);
 
-        // 4. Group sound → 1s → TTS
-        if (audio) {
-          playGroupSound(skill.group);
-          await new Promise((r) => setTimeout(r, 1000));
-          await playAudioElement(audio);
+        if (tts) {
+          setAudioPlaying(true);
+          if (!muted) {
+            playGroupSound(skill.group);
+            await new Promise((r) => setTimeout(r, 1000));
+          }
+          await tts.play();
+          setAudioPlaying(false);
         }
       } catch (err) {
         console.error(err);
@@ -194,96 +207,148 @@ export default function ChatBox({
         setBusy(false);
       }
     },
-    [messages, skill],
+    [messages, skill, prepareTTS, muted],
   );
 
   const sendMultiMessage = useCallback(
     async (text: string) => {
       const userMsg: Message = { role: "user", content: text };
-      const displayMessages: Message[] = [...messages, userMsg];
-      setMessages(displayMessages);
+      const baseMessages: Message[] = [...messages, userMsg];
+      setMessages(baseMessages);
       setInput("");
       setBusy(true);
 
       const chosenSkills = pickMultiSkills();
-      const prevResponses: Array<{ name: string; content: string }> = [];
-      const currentMessages = [...displayMessages];
+      // Texts collected as chats complete — used for history of subsequent chats
+      const collectedTexts: string[] = [];
+      // Live (progressive) text per skill, updated as bytes arrive
+      const liveTexts: string[] = chosenSkills.map(() => "");
+      // text-stream-done flag per skill
+      const doneFlags: boolean[] = chosenSkills.map(() => false);
+      // TTS handle promise per skill
+      const audioPromises: Array<Promise<TTSHandle | null>> = [];
+      // Displayed messages buffer (grows as messages are revealed)
+      const displayBuffer = [...baseMessages];
 
-      try {
-        for (const s of chosenSkills) {
-          // 1. Show cursor for this skill
-          setStreamingSkill({ name: s.name, group: s.group });
-          setStreamingText("");
+      // Which skill the displayChain is currently showing — only this skill's
+      // live stream is allowed to touch the cursor UI. -1 = none.
+      let activeDisplayIndex = -1;
 
-          const history = skillHistoriesRef.current[s.id] ?? [];
-          const apiHistory = history.flatMap<{ role: string; content: string }>(
-            (t) => [
-              { role: "user", content: t.user },
-              { role: "assistant", content: t.assistant },
-            ],
-          );
-          const apiMessages = [
-            ...apiHistory,
-            { role: "user", content: buildMultiUserMsg(text, prevResponses) },
-          ];
+      // fetchSkill: NO UI side effects (except live text for the active display
+      // skill). Runs ahead in chatChain so TTS overlaps next chat request.
+      async function fetchSkill(i: number): Promise<void> {
+        const s = chosenSkills[i];
 
-          // 2. Stream → cursor shows text
-          const full = await streamSkillResponse(
-            apiMessages,
-            s.id,
-            setStreamingText,
-          );
+        const prevResps = chosenSkills.slice(0, i).map((sk, j) => ({
+          name: sk.name,
+          content: collectedTexts[j],
+        }));
+        const prevSkillMsgs: Message[] = chosenSkills
+          .slice(0, i)
+          .map((sk, j) => ({
+            role: "assistant" as const,
+            content: collectedTexts[j],
+            speakerName: sk.name,
+            speakerGroup: sk.group,
+          }));
+        const apiMessages = [
+          ...toApiHistory(messages),
+          ...toApiHistory(prevSkillMsgs),
+          { role: "user", content: buildMultiUserMsg(text, prevResps) },
+        ];
 
-          // 3. Fetch TTS — cursor stays visible with full text + blink
-          const audio = await fetchTTSAudio(full);
+        const full = await streamSkillResponse(apiMessages, s.id, (t) => {
+          liveTexts[i] = t;
+          if (i === activeDisplayIndex) setStreamingText(t);
+        });
+        collectedTexts[i] = full;
+        doneFlags[i] = true;
+        audioPromises[i] = prepareTTS(full);
+      }
 
-          // 4. TTS received → reveal message, hide cursor
-          skillHistoriesRef.current[s.id] = [
-            ...history,
-            { user: text, assistant: full },
-          ];
-          prevResponses.push({ name: s.name, content: full });
-          currentMessages.push({
-            role: "assistant",
-            content: full,
-            speakerName: s.name,
-            speakerGroup: s.group,
-          });
-          setMessages([...currentMessages]);
-          setStreamingText("");
-          setStreamingSkill(null);
+      // displaySkill: SOLE owner of cursor + message UI. Runs strictly
+      // sequentially, so the next skill's cursor never appears until the
+      // previous skill is fully revealed and its audio has finished.
+      async function displaySkill(i: number): Promise<void> {
+        const s = chosenSkills[i];
 
-          // 5. Group sound → 1s → TTS
-          if (audio) {
+        // Show cursor for this skill
+        activeDisplayIndex = i;
+        setStreamingSkill({ name: s.name, group: s.group });
+        onStreamingSkill?.(s.id);
+        setStreamingText(liveTexts[i]);
+
+        // Wait for this skill's text to finish streaming (live updates flow via
+        // the fetchSkill callback because activeDisplayIndex === i now)
+        while (!doneFlags[i]) await new Promise((r) => setTimeout(r, 20));
+        setStreamingText(collectedTexts[i]);
+
+        const tts = await audioPromises[i];
+
+        // Reveal message, hide cursor
+        displayBuffer.push({
+          role: "assistant",
+          content: collectedTexts[i],
+          speakerName: s.name,
+          speakerGroup: s.group,
+        });
+        setMessages([...displayBuffer]);
+        activeDisplayIndex = -1;
+        setStreamingSkill(null);
+        onStreamingSkill?.(null);
+
+        if (tts) {
+          onSpeakingSkill?.(s.id); // portrait → this skill
+          setAudioPlaying(true);
+          if (!muted) {
             playGroupSound(s.group);
             await new Promise((r) => setTimeout(r, 1000));
-            await playAudioElement(audio);
           }
+          await tts.play();
+          setAudioPlaying(false);
         }
+      }
+
+      try {
+        // chatChain: fetch sequentially (each needs prev text for history)
+        let chatChain = fetchSkill(0);
+        for (let i = 1; i < chosenSkills.length; i++) {
+          const idx = i;
+          chatChain = chatChain.then(() => fetchSkill(idx));
+        }
+
+        // displayChain: reveal + play sequentially, owns all cursor UI
+        let displayChain = displaySkill(0);
+        for (let i = 1; i < chosenSkills.length; i++) {
+          const idx = i;
+          displayChain = displayChain.then(() => displaySkill(idx));
+        }
+
+        await chatChain; // all chat streams done
+        await displayChain; // all display+audio done
       } catch (err) {
         console.error(err);
-        currentMessages.push({
+        displayBuffer.push({
           role: "assistant",
           content: "...the signal is lost. Try again.",
         });
-        setMessages([...currentMessages]);
+        setMessages([...displayBuffer]);
+      } finally {
         setStreamingText("");
         setStreamingSkill(null);
-      } finally {
+        onSpeakingSkill?.(null); // revert portrait → "multi"
+        onStreamingSkill?.(null);
         setBusy(false);
       }
     },
-    [messages],
+    [messages, onSpeakingSkill, onStreamingSkill, prepareTTS, muted],
   );
 
   const sendMessage = useCallback(async () => {
     const text = input.trim();
     if (!text || busy) return;
-    if (multiMode) {
-      await sendMultiMessage(text);
-    } else {
-      await sendSingleMessage(text);
-    }
+    if (multiMode) await sendMultiMessage(text);
+    else await sendSingleMessage(text);
   }, [input, busy, multiMode, sendSingleMessage, sendMultiMessage]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -294,7 +359,6 @@ export default function ChatBox({
   };
 
   const userMsgCount = messages.filter((m) => m.role === "user").length;
-  const activeColor = GROUP_COLORS[skill.group];
 
   return (
     <div
@@ -308,10 +372,7 @@ export default function ChatBox({
         boxShadow: "-1px 0 0 #18122e",
       }}
     >
-      <div
-        className="flex-1 overflow-y-auto px-6 pt-5 pb-2"
-        style={{ scrollbarWidth: "none" }}
-      >
+      <div className="chat-scroll flex-1 overflow-y-auto px-6 pt-5 pb-2">
         {messages.length === 0 && !streamingSkill && (
           <p
             className="text-[#2e2848] leading-relaxed mt-4"
@@ -364,7 +425,7 @@ export default function ChatBox({
           }
         })}
 
-        {streamingSkill && (
+        {streamingSkill && !audioPlaying && (
           <div className="mb-5 leading-snug">
             <span
               className="font-bold uppercase"
@@ -381,10 +442,15 @@ export default function ChatBox({
             </span>
             <span className="text-[#ddd8cc]" style={{ fontSize: "17px" }}>
               {" – "}
-              {streamingText}
-
-              {/* <span style={{ color: `${GROUP_COLORS[streamingSkill.group as keyof typeof GROUP_COLORS]}44` }}>...</span> */}
-
+              {streamingText || (
+                <span
+                  style={{
+                    color: `${GROUP_COLORS[streamingSkill.group as keyof typeof GROUP_COLORS]}44`,
+                  }}
+                >
+                  ...
+                </span>
+              )}
               <span
                 className="animate-pulse"
                 style={{
@@ -410,55 +476,53 @@ export default function ChatBox({
         <div className="flex items-start gap-0 leading-snug">
           <span
             className="text-[#c87c40] flex-shrink-0"
-            style={{ fontSize: "17px" }}
+            style={{
+              fontSize: "17px",
+              opacity: input ? 0.8 : 0.4,
+              transition: "opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
           >
             {userMsgCount + 1}. -{" "}
           </span>
-          <textarea
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="speak your mind..."
-            disabled={busy}
-            rows={2}
-            className="flex-1 resize-none focus:outline-none bg-transparent leading-snug ml-1"
-            style={{
-              fontSize: "17px",
-              fontFamily: "inherit",
-              color: "#c87c40",
-              caretColor: "#c87c40",
-            }}
-          />
+          <div className="flex-1 relative ml-1">
+            <span
+              aria-hidden
+              className="absolute top-0 left-0 pointer-events-none select-none"
+              style={{
+                fontSize: "17px",
+                fontFamily: "inherit",
+                color: phBright ? "rgba(200,124,64,0.8)" : "rgba(200,124,64,0.4)",
+                display: input ? "none" : "block",
+                transition: "color 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+              }}
+            >
+              speak your mind...
+            </span>
+            <textarea
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              disabled={busy}
+              rows={2}
+              className="chat-input w-full resize-none focus:outline-none bg-transparent leading-snug"
+              style={{
+                fontSize: "17px",
+                fontFamily: "inherit",
+                color: input ? "rgba(200,124,64,0.8)" : "rgba(200,124,64,0.4)",
+                caretColor: "#c87c40",
+                transition: "color 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+              }}
+            />
+          </div>
         </div>
         <p
-          className="mt-2 text-[#1e1830] uppercase"
-          style={{ fontSize: "9px", letterSpacing: "0.22em" }}
+          className="mt-2 uppercase"
+          style={{ fontSize: "9px", letterSpacing: "0.22em", color: "#4a3870" }}
         >
           Enter · send &nbsp;|&nbsp; Shift+Enter · newline
-          {multiMode && (
-            <span style={{ color: "#4a3870" }}>
-              {" "}
-              &nbsp;|&nbsp; MULTI ACTIVE
-            </span>
-          )}
+          {multiMode && <span> &nbsp;|&nbsp; MULTI ACTIVE</span>}
         </p>
       </div>
-
-      <div
-        className="absolute right-0 top-0 bottom-0"
-        style={{ width: "3px", background: "#100d1c" }}
-      />
-      <div
-        className="absolute right-[1px]"
-        style={{
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: "5px",
-          height: "5px",
-          borderRadius: "50%",
-          background: activeColor + "88",
-        }}
-      />
     </div>
   );
 }

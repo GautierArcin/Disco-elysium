@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
-import { SKILLS, DEFAULT_SKILL, SKILL_FILE_MAP } from "@/core/skills";
+import { SKILLS, DEFAULT_SKILL, SKILL_FILE_MAP, SKILLS_CONTEXT } from "@/core/skills";
 import { readFileSync } from "fs";
 import { join } from "path";
 
@@ -23,9 +23,11 @@ function getDialogueExamples(skillId: string): string {
     const data = JSON.parse(
       readFileSync(join(process.cwd(), "skills", `${filename}.json`), "utf-8"),
     );
-    const lines = data.lines
-      .map((l: { text: string }) => `- ${l.text}`)
-      .join("\n");
+    const allLines: { text: string }[] = data.lines;
+    // Pick 20 random examples
+    const shuffled = [...allLines].sort(() => Math.random() - 0.5);
+    const picked = shuffled.slice(0, 20);
+    const lines = picked.map((l) => `- ${l.text}`).join("\n");
     return `\n\nACTUAL IN-GAME DIALOGUE (study this voice, do not repeat verbatim):\n${lines}`;
   } catch {
     return "";
@@ -35,23 +37,38 @@ function getDialogueExamples(skillId: string): string {
 export async function POST(req: NextRequest) {
   const { messages, skillId } = await req.json();
   const skill = SKILLS.find((s) => s.id === skillId) ?? DEFAULT_SKILL;
-  const lastMsg = messages[messages.length - 1]?.content ?? "";
-  console.log(
-    `[chat] skill=${skill.id} model=${ACTIVE_MODEL} msgs=${messages.length} last="${lastMsg.slice(0, 80)}"`,
-  );
-  const systemInstruction = skill.prompt + getDialogueExamples(skill.id);
+  const systemInstruction =
+    skill.prompt + SKILLS_CONTEXT + getDialogueExamples(skill.id);
+
+  // ── Full request log ──────────────────────────────────────────────────────
+  console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+  console.log(`GEMINI REQUEST  skill=${skill.id}  model=${ACTIVE_MODEL}`);
+  console.log("────────────────────────────────────────────────────────────");
+  console.log("SYSTEM:\n" + systemInstruction);
+  console.log("────────────────────────────────────────────────────────────");
+  console.log("MESSAGES:");
+  for (const m of messages) {
+    console.log(`  [${m.role.toUpperCase()}] ${m.content}`);
+  }
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+  // ─────────────────────────────────────────────────────────────────────────
 
   const model = genAI.getGenerativeModel({
     model: ACTIVE_MODEL,
     systemInstruction,
   });
 
-  const history = messages
+  let history = messages
     .slice(0, -1)
     .map((m: { role: string; content: string }) => ({
       role: m.role === "assistant" ? "model" : "user",
       parts: [{ text: m.content }],
     }));
+
+  // Gemini requires history to start with a 'user' turn. In multi mode the
+  // first turn(s) can be prior-skill 'model' messages — drop leading models.
+  const firstUser = history.findIndex((h: { role: string }) => h.role === "user");
+  history = firstUser === -1 ? [] : history.slice(firstUser);
 
   const lastMessage = messages[messages.length - 1].content;
   const chat = model.startChat({ history });

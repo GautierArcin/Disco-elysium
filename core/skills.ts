@@ -411,8 +411,44 @@ export const SKILLS: Skill[] = SKILLS_DATA.map((s) => ({
 
 export const DEFAULT_SKILL = SKILLS.find((s) => s.id === "volition")!;
 
+// One-line essence of each skill, so the model understands the whole cast
+// of voices it shares the user's head with.
+export const SKILL_BLURBS: Record<string, string> = {
+  logic: "cold deduction — proves or disproves propositions, sees the obvious conclusion.",
+  encyclopedia: "compulsive archive — surfaces trivia, footnotes and historical context.",
+  rhetoric: "combative debate — seizes argumentative control, spots fallacies, wins arguments.",
+  drama: "theatre and deceit — performs, lies convincingly, and detects others' lies.",
+  conceptualization: "artistic sense — reads the aesthetic meaning and symbolism in everything.",
+  "visual-calculus": "forensic reconstruction — rebuilds events from physical evidence and trajectories.",
+  volition: "willpower and moral integrity — keeps the user together, unambiguously on their side.",
+  "inland-empire": "dreams and hunches — hears what objects feel, senses hidden surreal truths.",
+  empathy: "emotional radar — reads the feelings hidden beneath what people actually say.",
+  authority: "dominance and command — measures power dynamics, pushes for control and rank.",
+  "esprit-de-corps": "brotherhood — the bond between cops, glimpses of comrades far away.",
+  suggestion: "charm and influence — makes people believe your idea was their own.",
+  endurance: "physical toughness — absorbs punishment, cold, drugs and despair.",
+  "pain-threshold": "enduring pain — negates physical and emotional hurt by refusing to care.",
+  "physical-instrument": "raw muscle — brute strength and intimidation, solving things with the body.",
+  "electro-chemistry": "hedonism — craving for drugs, drink, sex and chemical pleasure.",
+  shivers: "the voice of the city — senses Revachol's mood and weather across distance.",
+  "half-light": "fight-or-flight — primal fear and aggression, screams threat detection.",
+  "hand-eye-coordination": "aim and dexterity — precision with hands, tools and marksmanship.",
+  perception: "the senses — notices fine sight, sound, smell and texture details.",
+  "reaction-speed": "fast reflexes — quick dodges and quicker verbal comebacks.",
+  "savoir-faire": "grace and cool — stealth, agility, athletic style and flair.",
+  interfacing: "machines — locks, circuits and mechanisms; prefers devices to people.",
+  composure: "poise — hides emotion behind a poker face, reads others' body language.",
+};
+
+// Roster of all skills, appended to every system prompt for context.
+export const SKILLS_CONTEXT =
+  "\n\nTHE 24 SKILLS (the other voices sharing this mind — context so you know who you are among):\n" +
+  SKILLS.map(
+    (s) => `- ${s.name.toUpperCase()} (${GROUP_LABELS[s.group]}): ${SKILL_BLURBS[s.id]}`,
+  ).join("\n");
+
 export function pickMultiSkills(): Skill[] {
-  const count = Math.floor(Math.random() * 4) + 1;
+  const count = Math.floor(Math.random() * 3) + 2;
   const selected: Skill[] = [];
 
   // First skill: random
