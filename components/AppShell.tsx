@@ -16,6 +16,7 @@ import {
   PORTRAIT_W,
   PORTRAIT_H,
   SIDEBAR_W,
+  SIDEBAR_OVERLAP,
   MOBILE_HEADER_H,
 } from "@/core/layout";
 import { ChatProvider } from "@/context/ChatContext";
@@ -196,9 +197,9 @@ function AppShellInner() {
           style={{
             top: 0,
             bottom: 0,
-            right: PANEL_WIDTH,
+            right: `calc(${PANEL_WIDTH} - ${SIDEBAR_OVERLAP}px)`,
             width: `${SIDEBAR_W}px`,
-            padding: "22px 22px 22px",
+            padding: "24px 20px 24px 24px",
           }}
         >
           {/* Portrait */}
@@ -261,32 +262,32 @@ function AppShellInner() {
             }}
             className="w-full flex items-center justify-center gap-2 flex-shrink-0"
             style={{
-              height: "38px",
-              marginTop: "16px",
+              height: "50px",
+              marginTop: "18px",
               background: multiMode ? "#12092a" : "#0a0814",
               border: `1px solid ${multiMode ? "#6040a066" : "#2e285066"}`,
               color: multiMode ? "#a07ad8" : "#6a5f8a",
-              fontSize: "12px",
+              fontSize: "14px",
               letterSpacing: "0.22em",
               fontFamily: "inherit",
               cursor: "pointer",
             }}
           >
-            <span style={{ fontSize: "15px" }}>{multiMode ? "▣" : "□"}</span>
+            <span style={{ fontSize: "18px" }}>{multiMode ? "▣" : "□"}</span>
             <span className="uppercase">Multi</span>
           </button>
 
           {/* Skill dropdown — invisible when multi active (keeps layout) */}
-          <div className="relative flex-shrink-0" style={{ marginTop: "8px" }}>
+          <div className="relative flex-shrink-0" style={{ marginTop: "10px" }}>
             <button
               onClick={() => setDropdownOpen((o) => !o)}
               className="w-full flex items-center justify-between px-3"
               style={{
-                height: "44px",
+                height: "52px",
                 background: "#0a0814",
                 border: `1px solid ${color}66`,
                 color: `${color}cc`,
-                fontSize: "12px",
+                fontSize: "14px",
                 letterSpacing: "0.2em",
                 fontFamily: "inherit",
                 cursor: "pointer",
@@ -294,7 +295,7 @@ function AppShellInner() {
               }}
             >
               <span className="uppercase truncate">{activeSkill.name}</span>
-              <span style={{ fontSize: "12px", opacity: 0.6 }}>
+              <span style={{ fontSize: "13px", opacity: 0.6 }}>
                 {dropdownOpen ? "▲" : "▼"}
               </span>
             </button>
@@ -303,7 +304,7 @@ function AppShellInner() {
               <div
                 className="absolute left-0 right-0 overflow-y-auto z-40"
                 style={{
-                  top: "45px",
+                  top: "53px",
                   background: "#08060f",
                   border: `1px solid #1e1830`,
                   borderTop: "none",
@@ -311,32 +312,32 @@ function AppShellInner() {
                   scrollbarWidth: "none",
                 }}
               >
-                {skillList(38, 12, 11)}
+                {skillList(46, 14, 12)}
               </div>
             )}
           </div>
 
           {/* Audio controls — pinned to bottom */}
-          <div className="w-full flex flex-col gap-[5px] mt-auto flex-shrink-0">
+          <div className="w-full flex flex-col gap-[6px] mt-auto flex-shrink-0">
             <button
               onClick={toggleMute}
               className="w-full flex items-center justify-center gap-2"
               style={{
-                height: "38px",
+                height: "50px",
                 background: !muted ? "#12092a" : "#0a0814",
                 border: `1px solid ${!muted ? "#6040a066" : "#2e285066"}`,
                 color: !muted ? "#a07ad8" : "#6a5f8a",
-                fontSize: "12px",
+                fontSize: "14px",
                 letterSpacing: "0.22em",
                 fontFamily: "inherit",
                 cursor: "pointer",
               }}
             >
-              <span style={{ fontSize: "15px" }}>{!muted ? "▣" : "□"}</span>
+              <span style={{ fontSize: "18px" }}>{!muted ? "▣" : "□"}</span>
               <span className="uppercase">Sound</span>
             </button>
 
-            <div className="w-full flex gap-[5px]" style={{ height: "34px" }}>
+            <div className="w-full flex gap-[6px]" style={{ height: "44px" }}>
               {(["elevenlabs", "browser"] as const).map((p) => {
                 const isActive = provider === p;
                 const unavailable =
@@ -348,7 +349,7 @@ function AppShellInner() {
                     key={p}
                     onClick={() => setProvider(p)}
                     disabled={unavailable}
-                    className="flex-1 uppercase leading-tight"
+                    className="flex-1 uppercase leading-tight flex items-center justify-center text-center px-2"
                     style={{
                       background: isActive ? "#12092a" : "#0a0814",
                       border: `1px solid ${isActive ? "#6040a066" : "#2e285066"}`,
@@ -358,7 +359,7 @@ function AppShellInner() {
                           ? "#a07ad8"
                           : "#6a5f8a",
                       fontSize: "10px",
-                      letterSpacing: "0.14em",
+                      letterSpacing: "0.12em",
                       fontFamily: "inherit",
                       cursor: unavailable ? "not-allowed" : "pointer",
                     }}
@@ -442,7 +443,9 @@ function MobileChrome({
       <div
         className="flex items-center gap-3 px-3 h-full"
         style={{
-          background: "rgba(8, 6, 14, 0.96)",
+          background: "rgba(8, 6, 14, 0.62)",
+          backdropFilter: "blur(7px)",
+          WebkitBackdropFilter: "blur(7px)",
           borderBottom: `1px solid ${color}33`,
         }}
       >
@@ -450,8 +453,8 @@ function MobileChrome({
         <div
           className="relative flex-shrink-0 overflow-hidden"
           style={{
-            width: "44px",
-            height: "54px",
+            width: "58px",
+            height: "74px",
             border: `1px solid ${color}55`,
           }}
         >
@@ -482,19 +485,19 @@ function MobileChrome({
             setMultiMode((m) => !m);
             setDropdownOpen(false);
           }}
-          className="flex items-center justify-center gap-1 px-3"
+          className="flex items-center justify-center gap-2 px-5"
           style={{
-            height: "44px",
+            height: "62px",
             background: multiMode ? "#12092a" : "#0a0814",
             border: `1px solid ${multiMode ? "#6040a066" : "#2e285066"}`,
             color: multiMode ? "#8060c0" : "#7a6f9a",
-            fontSize: "11px",
+            fontSize: "14px",
             letterSpacing: "0.12em",
             fontFamily: "inherit",
             cursor: "pointer",
           }}
         >
-          <span style={{ fontSize: "13px" }}>{multiMode ? "▣" : "□"}</span>
+          <span style={{ fontSize: "18px" }}>{multiMode ? "▣" : "□"}</span>
           <span className="uppercase">Multi</span>
         </button>
 
@@ -503,12 +506,12 @@ function MobileChrome({
           onClick={toggleMute}
           className="flex items-center justify-center px-3"
           style={{
-            height: "44px",
-            minWidth: "44px",
+            height: "62px",
+            minWidth: "62px",
             background: !muted ? "#12092a" : "#0a0814",
             border: `1px solid ${!muted ? "#6040a066" : "#2e285066"}`,
             color: !muted ? "#8060c0" : "#5a4f7a",
-            fontSize: "18px",
+            fontSize: "24px",
             fontFamily: "inherit",
             cursor: "pointer",
           }}
@@ -520,20 +523,20 @@ function MobileChrome({
         {/* Skills menu toggle */}
         <button
           onClick={() => setDropdownOpen((o) => !o)}
-          className="flex items-center justify-center gap-1 px-3"
+          className="flex items-center justify-center gap-2 px-5"
           style={{
-            height: "44px",
+            height: "62px",
             background: "#0a0814",
             border: `1px solid ${color}66`,
             color: `${color}cc`,
-            fontSize: "11px",
+            fontSize: "14px",
             letterSpacing: "0.12em",
             fontFamily: "inherit",
             cursor: "pointer",
           }}
         >
           <span className="uppercase">Skills</span>
-          <span style={{ fontSize: "10px", opacity: 0.7 }}>
+          <span style={{ fontSize: "13px", opacity: 0.7 }}>
             {dropdownOpen ? "▲" : "▼"}
           </span>
         </button>
@@ -544,7 +547,9 @@ function MobileChrome({
         <div
           className="overflow-y-auto"
           style={{
-            background: "rgba(6, 4, 12, 0.98)",
+            background: "rgba(6, 4, 12, 0.82)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
             borderBottom: "1px solid #1e1830",
             maxHeight: `calc(100dvh - ${MOBILE_HEADER_H}px)`,
             scrollbarWidth: "none",
@@ -552,8 +557,8 @@ function MobileChrome({
         >
           {/* Provider toggle */}
           <div
-            className="flex gap-[4px] px-3 pt-3 pb-1"
-            style={{ height: "52px" }}
+            className="flex gap-[6px] px-3 pt-3 pb-1"
+            style={{ height: "58px" }}
           >
             {(["elevenlabs", "browser"] as const).map((p) => {
               const isActive = provider === p;
@@ -566,7 +571,7 @@ function MobileChrome({
                   key={p}
                   onClick={() => setProvider(p)}
                   disabled={unavailable}
-                  className="flex-1 uppercase"
+                  className="flex-1 uppercase leading-tight flex items-center justify-center text-center px-2"
                   style={{
                     background: isActive ? "#12092a" : "#0a0814",
                     border: `1px solid ${isActive ? "#6040a066" : "#2e285066"}`,

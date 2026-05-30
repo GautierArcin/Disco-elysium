@@ -1,9 +1,15 @@
 "use client";
 
-import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+  useCallback,
+} from "react";
 import { type Skill, GROUP_COLORS, pickMultiSkills } from "@/core/skills";
 import { useAudio, type TTSHandle } from "@/context/AudioContext";
-import { MOBILE_HEADER_H } from "@/core/layout";
+import { MOBILE_HEADER_H, SIDEBAR_OVERLAP } from "@/core/layout";
 
 interface Message {
   role: "user" | "assistant";
@@ -363,6 +369,10 @@ export default function ChatBox({
 
   const userMsgCount = messages.filter((m) => m.role === "user").length;
 
+  // Desktop: clear the sidebar that overlaps the chat's left edge.
+  const padLeft = isMobile ? "18px" : `${SIDEBAR_OVERLAP + 24}px`;
+  const padRight = isMobile ? "18px" : "24px";
+
   return (
     <div
       className="fixed right-0 flex flex-col"
@@ -372,19 +382,20 @@ export default function ChatBox({
         height: isMobile ? `calc(100dvh - ${MOBILE_HEADER_H}px)` : "100dvh",
         width: isMobile ? "100%" : "var(--panel-width)",
         left: isMobile ? 0 : undefined,
-        background: "rgba(10, 8, 18, 0.80)",
-        backdropFilter: "blur(0px)",
+        background: "rgba(10, 8, 18, 0.8)",
         borderLeft: isMobile ? "none" : "4px solid #2a2245",
-        boxShadow: isMobile ? "none" : "-1px 0 0 #18122e",
+        boxShadow: isMobile
+          ? "none"
+          : "-1px 0 0 #18122e, inset 26px 0 34px -24px rgba(0,0,0,0.6)",
       }}
     >
       <div
         className="chat-scroll flex-1 overflow-y-auto pt-5 pb-2"
-        style={{ paddingLeft: isMobile ? "18px" : "24px", paddingRight: isMobile ? "18px" : "24px" }}
+        style={{ paddingLeft: padLeft, paddingRight: padRight }}
       >
         {messages.length === 0 && !streamingSkill && (
           <p
-            className="text-[#2e2848] leading-relaxed mt-4"
+            className="text-[#6b6396] leading-relaxed mt-4"
             style={{ fontSize: "17px", fontStyle: "italic" }}
           >
             {multiMode
@@ -478,12 +489,19 @@ export default function ChatBox({
 
         <div ref={bottomRef} />
       </div>
-
-      <div style={{ marginInline: isMobile ? "18px" : "24px", height: "1px", background: "#1c1628" }} />
+      {/* 
+      <div
+        style={{
+          marginLeft: padLeft,
+          marginRight: padRight,
+          height: "1px",
+          background: "#1c1628",
+        }}
+      /> */}
 
       <div
         className="flex-shrink-0 py-4"
-        style={{ paddingLeft: isMobile ? "18px" : "24px", paddingRight: isMobile ? "18px" : "24px" }}
+        style={{ paddingLeft: padLeft, paddingRight: padRight }}
       >
         <div className="flex items-start gap-3 leading-snug">
           <span
@@ -503,7 +521,9 @@ export default function ChatBox({
               style={{
                 fontSize: "17px",
                 fontFamily: "inherit",
-                color: phBright ? "rgba(200,124,64,0.8)" : "rgba(200,124,64,0.4)",
+                color: phBright
+                  ? "rgba(200,124,64,0.8)"
+                  : "rgba(200,124,64,0.4)",
                 display: input ? "none" : "block",
                 transition: "color 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
               }}
@@ -514,7 +534,6 @@ export default function ChatBox({
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              disabled={busy}
               rows={2}
               className="chat-input w-full resize-none focus:outline-none bg-transparent leading-snug"
               style={{
@@ -548,7 +567,7 @@ export default function ChatBox({
         </div>
         <p
           className="mt-2 uppercase"
-          style={{ fontSize: "9px", letterSpacing: "0.22em", color: "#4a3870" }}
+          style={{ fontSize: "9px", letterSpacing: "0.22em", color: "#6a5fa0" }}
         >
           {isMobile ? (
             <>Tap Send to speak</>
